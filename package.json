@@ -1,5 +1,5 @@
 {
-  "name": "@sensorario/sg-components",
+  "name": "sgcom-components",
   "private": false,
   "version": "0.0.2",
   "type": "module",
