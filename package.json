@@ -1,10 +1,11 @@
 {
-  "name": "storybook.simonegentili.com",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@sensorario/sg-components",
+  "private": false,
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "npm version patch --no-git-tag-version",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
