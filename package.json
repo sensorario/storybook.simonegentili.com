@@ -1,6 +1,5 @@
 {
   "name": "@sensorario/sg-components",
-  "private": false,
   "version": "0.0.21",
   "type": "module",
   "scripts": {
@@ -17,10 +16,15 @@
   "main": "dist/index.es.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "dist/sg-components.css"
+  ],
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "style": "./dist/sg-components.css"
     }
   },
   "dependencies": {
