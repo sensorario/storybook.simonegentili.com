@@ -10,6 +10,7 @@ const links = [
 export const SGFooter = () => {
   return (
     <Footer
+      href="https://simonegentili.com"
       copyright="© 2026 simonegentili.com"
       links={links}
     />
