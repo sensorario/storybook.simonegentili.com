@@ -8,6 +8,8 @@
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #555;
+  position: absolute;
+  bottom: 0;
 }
 
 .footer a {
