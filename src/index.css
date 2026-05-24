@@ -1,4 +1,5 @@
 :root {
+:root {
   --text: #6b6375;
   --text-h: #08060d;
   --bg: #fff;
@@ -28,6 +29,35 @@
   @media (max-width: 1024px) {
     font-size: 16px;
   }
+}
+
+body.light {
+  --bg: #fff;
+  --text: #222;
+}
+body.dark {
+  --bg: #222;
+  --text: #fff;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.theme-a {
+  --bg: #fff;
+  --text: #222;
+  --accent: #aa3bff;
+}
+.theme-b {
+  --bg: #222;
+  --text: #fff;
+  --accent: #00bfff;
+}
+.theme-c {
+  --bg: #fffcf0;
+  --text: #b8860b;
+  --accent: #ffcc00;
 }
 
 @media (prefers-color-scheme: dark) {
