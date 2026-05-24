@@ -11,6 +11,7 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "build-prod": "NODE_ENV=production storybook build",
     "export-storybook": "bash ./scripts/export-storybook.sh"
   },
   "main": "dist/index.es.js",
