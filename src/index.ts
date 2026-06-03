@@ -1,3 +1,4 @@
 export * from './components/Footer/Footer';
-export * from './components/SGFooter/SGFooter';
+export * from './components/SG/Footer/SGFooter';
 export * from './components/Header/Header';
+export * from './components/SG/Header/SGHeader';

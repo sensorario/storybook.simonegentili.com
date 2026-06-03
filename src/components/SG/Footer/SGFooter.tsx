@@ -1,4 +1,4 @@
-import { Footer } from '../Footer/Footer';
+import { Footer } from '../../Footer/Footer';
 
 const links = [
   { label: 'guitar', href: 'https://guitar.simonegentili.com' },
