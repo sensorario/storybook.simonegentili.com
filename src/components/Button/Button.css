@@ -1,0 +1,15 @@
+@import '../themes.css';
+.custom-button {
+  padding: 8px 16px;
+  border-radius: var(--primary-radius);
+  border: 1px solid var(--primary-border);
+  background: var(--primary-bg);
+  cursor: pointer;
+  font-size: var(--primary-font);
+  transition: background 0.2s;
+  font-family: var(--font-family);
+}
+
+.custom-button:hover {
+  background: var(--primary-hover-bg);
+}

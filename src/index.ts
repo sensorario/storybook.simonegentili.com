@@ -1,2 +1,3 @@
-export * from './stories/Footer/Footer';
-export * from './stories/SGFooter/SGFooter';
+export * from './components/Footer/Footer';
+export * from './components/SGFooter/SGFooter';
+export * from './components/Header/Header';

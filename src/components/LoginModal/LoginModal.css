@@ -1,0 +1,13 @@
+@import '../themes.css';
+
+form {
+    font-family: var(--font-family);
+}
+
+.login-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: var(--font-family);
+  font-size: var(--primary-font);
+}

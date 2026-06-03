@@ -1,11 +1,13 @@
+@import '../themes.css';
+
 .footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 16px 32px;
-  background-color: #f8f8f8;
-  border-top: 1px solid #e0e0e0;
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: var(--primary-bg);
+  border-top: 1px solid var(--primary-border);
+  font-family: var(--font-family);
   font-size: 14px;
   color: #555;
   position: fixed;
