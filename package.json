@@ -1,6 +1,6 @@
 {
   "name": "@sensorario/sg-components",
-  "version": "0.0.52",
+  "version": "0.0.56",
   "type": "module",
   "private": false,
   "scripts": {

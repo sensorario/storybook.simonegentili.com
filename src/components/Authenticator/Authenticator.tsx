@@ -7,17 +7,18 @@ type AuthenticatorProps = {
     handleLogout: () => void;
 };
 
-const Authenticator: React.FC<AuthenticatorProps> = ({
+export const Authenticator: React.FC<AuthenticatorProps> = ({
     isLoggedIn,
     handleLogin,
     handleLogout
 }: AuthenticatorProps) => {
     return <>{
         isLoggedIn
-            ? <button onClick={handleLogout}>logout</button>
+            ? <button onClick={handleLogout}
+                style={{ fontSize: '0.9rem', padding: '0.4rem 1rem' }}>logout</button>
             : <button onClick={handleLogin}
                 style={{ fontSize: '0.9rem', padding: '0.4rem 1rem' }}>Login</button>
     }</>
 }
 
-export default Authenticator;   
+export default Authenticator;
