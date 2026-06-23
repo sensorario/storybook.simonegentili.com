@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Authenticator } from './Authenticator';
+import Authenticator from './Authenticator';
 
 const meta: Meta<typeof Authenticator> = {
     title: 'Components/Authenticator',
