@@ -16,3 +16,11 @@ export const Default: Story = {
         placeholder: 'Inserisci username',
     },
 };
+
+export const Invalid: Story = {
+    args: {
+        label: 'Email',
+        value: 'indirizzo-non-valido',
+        invalid: true,
+    },
+};
