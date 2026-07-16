@@ -4,3 +4,4 @@ export * from './components/Header/Header';
 export * from './components/SG/Header/SGHeader';
 export * from './components/Authenticator/Authenticator';
 export * from './components/LoginModal/LoginModal';
+export * from './components/SetPasswordModal/SetPasswordModal';
