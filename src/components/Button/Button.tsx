@@ -5,7 +5,7 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     label: string;
 };
 
-const Button: React.FC<ButtonProps> = ({ label, ...props }) => (
+export const Button: React.FC<ButtonProps> = ({ label, ...props }) => (
     <button className="custom-button" {...props}>
         {label}
     </button>

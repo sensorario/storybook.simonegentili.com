@@ -1,3 +1,4 @@
+export * from './components/Button/Button';
 export * from './components/Footer/Footer';
 export * from './components/SG/Footer/SGFooter';
 export * from './components/Header/Header';
