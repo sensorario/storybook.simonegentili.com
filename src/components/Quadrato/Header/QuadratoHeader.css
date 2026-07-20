@@ -1,0 +1,12 @@
+@import '../../themes.css';
+
+.quadrato-header-auth {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.quadrato-header-username {
+  font-size: var(--font-size);
+  color: #333;
+}

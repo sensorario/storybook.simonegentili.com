@@ -27,6 +27,13 @@
   align-items: center;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
 .logo {
   cursor: pointer;
   font-size: 24px;
