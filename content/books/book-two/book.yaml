@@ -1,0 +1,9 @@
+title: "Primi Passi con Docker"
+author: "Simone Gentili"
+isbn: "000-0-00-000002-8"
+backCover: >
+  Un'introduzione pratica a Docker: dai container di base alla gestione di
+  volumi e reti, per chi vuole iniziare a containerizzare le proprie applicazioni.
+otherBooks:
+  - title: "Guida Pratica a Git"
+    amazonUrl: "https://www.amazon.it/dp/PLACEHOLDER-BOOK-ONE"
