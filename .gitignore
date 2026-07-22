@@ -12,9 +12,6 @@ dist
 dist-ssr
 *.local
 
-# generated book output
-build/
-
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -1,9 +1,0 @@
-title: "Guida Pratica a Git"
-author: "Simone Gentili"
-isbn: "000-0-00-000001-1"
-backCover: >
-  Una guida essenziale per chi vuole imparare Git da zero: dai comandi di
-  base alla configurazione dell'editor, con esempi pratici passo per passo.
-otherBooks:
-  - title: "Primi Passi con Docker"
-    amazonUrl: "https://www.amazon.it/dp/PLACEHOLDER-BOOK-TWO"

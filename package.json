@@ -12,8 +12,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "build-prod": "NODE_ENV=production storybook build",
-    "export-storybook": "bash ./scripts/export-storybook.sh",
-    "book": "node scripts/build-book.mjs"
+    "export-storybook": "bash ./scripts/export-storybook.sh"
   },
   "main": "dist/index.es.js",
   "module": "dist/index.es.js",
@@ -56,8 +55,7 @@
     "eslint-plugin-react-refresh": "^0.5.2",
     "eslint-plugin-storybook": "^10.4.1",
     "globals": "^17.6.0",
-    "js-yaml": "^5.2.1",
-    "playwright": "^1.60.0",
+"playwright": "^1.60.0",
     "rollup": "^4.60.4",
     "rollup-plugin-dts": "^6.4.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
