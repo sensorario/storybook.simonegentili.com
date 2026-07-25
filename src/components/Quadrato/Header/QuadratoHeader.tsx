@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
 import { Header } from '../../Header/Header';
 import Authenticator from '../../Authenticator/Authenticator';
 import LoginModal from '../../LoginModal/LoginModal';
@@ -43,7 +43,12 @@ interface QuadratoHeaderProps {
   onUserAuthenticated?: (isAuthenticated: boolean, username: string | null) => void;
 }
 
-export const QuadratoHeader = ({
+export interface QuadratoHeaderHandle {
+  /** Forces the login modal open, e.g. when a consumer action requires auth first. */
+  openLoginModal: () => void;
+}
+
+export const QuadratoHeader = forwardRef<QuadratoHeaderHandle, QuadratoHeaderProps>(({
   title = 'Quadrato',
   homePageKey = 'home',
   onNavigate,
@@ -53,9 +58,13 @@ export const QuadratoHeader = ({
   onLogin,
   onLogout,
   onUserAuthenticated,
-}: QuadratoHeaderProps) => {
+}, ref) => {
   const [isAuthenticated, setIsAuthenticated] = useState(() => hasCookie(cookieName));
   const [showLoginModal, setShowLoginModal] = useState(false);
+
+  useImperativeHandle(ref, () => ({
+    openLoginModal: () => setShowLoginModal(true),
+  }));
 
   const effectiveUsername =
     username ?? (isAuthenticated ? decodeJwtField(getCookieValue(cookieName) ?? '', usernameJwtField) : null);
@@ -98,4 +107,6 @@ export const QuadratoHeader = ({
       <LoginModal open={showLoginModal} onClose={() => setShowLoginModal(false)} onLogin={handleLogin} />
     </>
   );
-};
+});
+
+QuadratoHeader.displayName = 'QuadratoHeader';
