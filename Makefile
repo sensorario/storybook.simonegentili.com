@@ -1,4 +1,4 @@
-.PHONY: deploy deploy-log
+.PHONY: deploy deploy-log publish
 
 deploy:
 	@nohup ./scripts/deploy.sh >/dev/null 2>&1 & disown
@@ -6,3 +6,7 @@ deploy:
 
 deploy-log:
 	@tail -f log/deploy/latest.log
+
+publish:
+	npm run build
+	npm publish
