@@ -1,5 +1,9 @@
 @import '../../themes.css';
 
+.header.quadrato-header {
+  z-index: 999;
+}
+
 .quadrato-header-auth {
   display: flex;
   align-items: center;

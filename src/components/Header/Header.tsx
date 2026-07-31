@@ -6,6 +6,7 @@ interface HeaderProps {
   title?: string;
   homePageKey?: string;
   children?: ReactNode;
+  className?: string;
 }
 
 export const Header = ({
@@ -13,13 +14,14 @@ export const Header = ({
   title = 'Simone Gentili - senior web developer, tech author and chess enthusiast',
   homePageKey = 'home',
   children,
+  className,
 }: HeaderProps) => {
   const handleLogoClick = () => {
     onNavigate?.(homePageKey);
   };
 
   return (
-    <header className="header">
+    <header className={className ? `header ${className}` : 'header'}>
       <div className="header-container">
         <div className="logo" onClick={handleLogoClick}>
           <h1 className="logo-text">{title}</h1>
