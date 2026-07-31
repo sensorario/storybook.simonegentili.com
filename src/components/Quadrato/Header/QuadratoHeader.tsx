@@ -92,7 +92,7 @@ export const QuadratoHeader = forwardRef<QuadratoHeaderHandle, QuadratoHeaderPro
 
   return (
     <>
-      <Header onNavigate={onNavigate} title={title} homePageKey={homePageKey}>
+      <Header onNavigate={onNavigate} title={title} homePageKey={homePageKey} className="quadrato-header">
         <div className="quadrato-header-auth">
           {isAuthenticated && effectiveUsername && (
             <span className="quadrato-header-username">{effectiveUsername}</span>
