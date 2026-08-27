@@ -17,7 +17,8 @@ export type IconName =
     | 'download'
     | 'book'
     | 'printer'
-    | 'eye';
+    | 'eye'
+    | 'columns';
 
 const ICON_PATHS: Record<IconName, React.ReactNode> = {
     menu: (
@@ -96,6 +97,12 @@ const ICON_PATHS: Record<IconName, React.ReactNode> = {
         <>
             <path d="M2 12c2.5-5 7-8 10-8s7.5 3 10 8c-2.5 5-7 8-10 8s-7.5-3-10-8z" />
             <circle cx="12" cy="12" r="3" />
+        </>
+    ),
+    columns: (
+        <>
+            <rect x="3" y="4" width="8" height="16" rx="1.5" />
+            <rect x="13" y="4" width="8" height="16" rx="1.5" />
         </>
     ),
 };
