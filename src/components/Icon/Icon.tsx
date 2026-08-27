@@ -16,7 +16,8 @@ export type IconName =
     | 'share-2'
     | 'download'
     | 'book'
-    | 'printer';
+    | 'printer'
+    | 'eye';
 
 const ICON_PATHS: Record<IconName, React.ReactNode> = {
     menu: (
@@ -89,6 +90,12 @@ const ICON_PATHS: Record<IconName, React.ReactNode> = {
             <path d="M6 9V3h12v6" />
             <rect x="4" y="9" width="16" height="8" rx="1.5" />
             <path d="M6 17v4h12v-4" />
+        </>
+    ),
+    eye: (
+        <>
+            <path d="M2 12c2.5-5 7-8 10-8s7.5 3 10 8c-2.5 5-7 8-10 8s-7.5-3-10-8z" />
+            <circle cx="12" cy="12" r="3" />
         </>
     ),
 };

@@ -28,6 +28,7 @@ const ALL_NAMES: IconName[] = [
     'download',
     'book',
     'printer',
+    'eye',
 ];
 
 export const AllIcons: Story = {
