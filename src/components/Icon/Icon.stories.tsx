@@ -29,6 +29,7 @@ const ALL_NAMES: IconName[] = [
     'book',
     'printer',
     'eye',
+    'columns',
 ];
 
 export const AllIcons: Story = {

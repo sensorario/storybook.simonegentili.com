@@ -18,6 +18,10 @@ interface ModalProps {
     // Accessible name for the dismiss button - this library has no i18n
     // dependency of its own, so consumers pass their own translated string.
     closeLabel?: string;
+    // Extra class appended to .modal-content, so a consumer can override
+    // sizing (width/max-height) for one specific modal instance via its own
+    // CSS without needing a prop for every possible dimension.
+    className?: string;
 }
 
 // Must match the .modal-content-closing / .modal-overlay-closing animation
@@ -33,6 +37,7 @@ export const Modal: React.FC<ModalProps> = ({
     buttons,
     footer,
     closeLabel = 'Close',
+    className,
 }) => {
     const [closing, setClosing] = useState(false);
 
@@ -66,7 +71,7 @@ export const Modal: React.FC<ModalProps> = ({
             onClick={() => closeWith(onClose)}
         >
             <div
-                className={`modal-content${closing ? ' modal-content-closing' : ''}`}
+                className={`modal-content${className ? ` ${className}` : ''}${closing ? ' modal-content-closing' : ''}`}
                 onClick={(e) => e.stopPropagation()}
             >
                 <div className="modal-header">
