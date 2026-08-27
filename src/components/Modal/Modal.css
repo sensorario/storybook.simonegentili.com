@@ -11,39 +11,102 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  animation: sg-modal-overlay-fade-in 0.25s ease-out;
 }
 
-.modal-children {
-    padding: 16px;
-    font-family: var(--font-family);
+.modal-overlay.modal-overlay-closing {
+  animation: sg-modal-overlay-fade-out 0.22s ease-in forwards;
 }
 
 .modal-content {
   background: var(--modal-bg);
-  border-radius: 8px;
-    font-size: var(--primary-font);
+  border-radius: var(--primary-radius);
+  font-size: var(--primary-font);
   min-width: 320px;
-  position: relative;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+  max-width: calc(100vw - 40px);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+  animation: sg-modal-slide-in 0.3s ease-out;
+}
+
+.modal-content.modal-content-closing {
+  animation: sg-modal-slide-out 0.22s ease-in forwards;
+}
+
+@keyframes sg-modal-overlay-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes sg-modal-overlay-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes sg-modal-slide-in {
+  from { transform: translateY(-24px) scale(0.97); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@keyframes sg-modal-slide-out {
+  from { transform: translateY(0) scale(1); opacity: 1; }
+  to { transform: translateY(-24px) scale(0.97); opacity: 0; }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  background: var(--primary-bg);
+  border-top-left-radius: var(--primary-radius);
+  border-top-right-radius: var(--primary-radius);
+  flex: 0 0 auto;
+}
+
+.modal-icon {
+  display: inline-flex;
+  color: var(--modal-title-color);
 }
 
 .modal-title {
-  margin-top: 0;
+  margin: 0;
+  flex: 1;
   color: var(--modal-title-color);
   font-family: var(--font-family);
-  background-color: var(--primary-bg);
   font-size: var(--primary-font);
-  padding: 16px;
-  border-top-left-radius: var(--primary-radius);
-  border-top-right-radius: var(--primary-radius);
 }
 
 .modal-close {
-  position: absolute;
-  top: 8px;
-  right: 8px;
   background: none;
   border: none;
   font-size: 20px;
+  line-height: 1;
   cursor: pointer;
+  color: var(--modal-title-color);
+  padding: 4px 8px;
+}
+
+.modal-close:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.modal-children {
+  padding: 16px;
+  font-family: var(--font-family);
+  overflow-y: auto;
+}
+
+.modal-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+  padding: 12px 16px;
+  border-top: 1px solid var(--primary-border);
+  flex: 0 0 auto;
 }

@@ -8,3 +8,4 @@ export * from './components/Quadrato/Header/QuadratoHeader';
 export * from './components/Authenticator/Authenticator';
 export * from './components/LoginModal/LoginModal';
 export * from './components/SetPasswordModal/SetPasswordModal';
+export * from './components/Modal/Modal';
