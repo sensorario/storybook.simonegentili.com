@@ -19,6 +19,14 @@
 }
 
 .modal-content {
+  /* Set from Modal.tsx's dragOffset on every render (default 0px when not
+     dragged). The slide-in/slide-out keyframes below build on top of these
+     instead of hard-coding translateY(0) - otherwise starting/ending the
+     animation snaps the modal back to an un-dragged position for one frame,
+     since a CSS animation's own transform always wins over this rule while
+     it's running. */
+  --drag-x: 0px;
+  --drag-y: 0px;
   background: var(--modal-bg);
   border-radius: var(--primary-radius);
   font-size: var(--primary-font);
@@ -29,6 +37,7 @@
   flex-direction: column;
   overflow: hidden;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+  transform: translate(var(--drag-x), var(--drag-y));
   animation: sg-modal-slide-in 0.3s ease-out;
 }
 
@@ -47,13 +56,25 @@
 }
 
 @keyframes sg-modal-slide-in {
-  from { transform: translateY(-24px) scale(0.97); opacity: 0; }
-  to { transform: translateY(0) scale(1); opacity: 1; }
+  from {
+    transform: translate(var(--drag-x), calc(var(--drag-y) - 24px)) scale(0.97);
+    opacity: 0;
+  }
+  to {
+    transform: translate(var(--drag-x), var(--drag-y)) scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes sg-modal-slide-out {
-  from { transform: translateY(0) scale(1); opacity: 1; }
-  to { transform: translateY(-24px) scale(0.97); opacity: 0; }
+  from {
+    transform: translate(var(--drag-x), var(--drag-y)) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translate(var(--drag-x), calc(var(--drag-y) - 24px)) scale(0.97);
+    opacity: 0;
+  }
 }
 
 .modal-header {
@@ -65,6 +86,15 @@
   border-top-left-radius: var(--primary-radius);
   border-top-right-radius: var(--primary-radius);
   flex: 0 0 auto;
+  cursor: grab;
+  /* Without this, a touch-drag on the header scrolls the page instead of
+     moving the modal - see startDrag()/continueDrag() in Modal.tsx. */
+  touch-action: none;
+}
+
+.modal-header-dragging {
+  cursor: grabbing;
+  user-select: none;
 }
 
 .modal-icon {
@@ -85,6 +115,8 @@
   border: none;
   font-size: 20px;
   line-height: 1;
+  /* Overrides .modal-header's cursor: grab - this button isn't a drag
+     handle even though it sits inside one (see startDrag() in Modal.tsx). */
   cursor: pointer;
   color: var(--modal-title-color);
   padding: 4px 8px;
