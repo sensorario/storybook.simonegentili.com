@@ -1,11 +1,10 @@
 {
   "name": "@sensorario/sg-components",
-  "version": "0.0.86",
+  "version": "0.0.87",
   "type": "module",
   "private": false,
   "scripts": {
     "dev": "vite",
-    "prebuild": "npm version patch --no-git-tag-version",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
