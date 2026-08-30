@@ -11,6 +11,7 @@ export type IconName =
     | 'edit'
     | 'help-circle'
     | 'check'
+    | 'x'
     | 'file-plus'
     | 'link'
     | 'share-2'
@@ -18,7 +19,10 @@ export type IconName =
     | 'book'
     | 'printer'
     | 'eye'
-    | 'columns';
+    | 'columns'
+    | 'tech-node'
+    | 'tech-go'
+    | 'tech-php';
 
 const ICON_PATHS: Record<IconName, React.ReactNode> = {
     menu: (
@@ -49,6 +53,12 @@ const ICON_PATHS: Record<IconName, React.ReactNode> = {
         </>
     ),
     check: <polyline points="4 12 9 17 20 6" />,
+    x: (
+        <>
+            <line x1="6" y1="6" x2="18" y2="18" />
+            <line x1="18" y1="6" x2="6" y2="18" />
+        </>
+    ),
     'file-plus': (
         <>
             <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
@@ -103,6 +113,14 @@ const ICON_PATHS: Record<IconName, React.ReactNode> = {
         <>
             <rect x="3" y="4" width="8" height="16" rx="1.5" />
             <rect x="13" y="4" width="8" height="16" rx="1.5" />
+        </>
+    ),
+    'tech-node': <polygon points="12,3 19.8,7.5 19.8,16.5 12,21 4.2,16.5 4.2,7.5" />,
+    'tech-go': <polygon points="12,3 21,12 12,21 3,12" />,
+    'tech-php': (
+        <>
+            <path d="M9 4c-1.5 0-2.5 1-2.5 2.5v3c0 1-.5 1.5-1.5 2.5 1 1 1.5 1.5 1.5 2.5v3c0 1.5 1 2.5 2.5 2.5" />
+            <path d="M15 4c1.5 0 2.5 1 2.5 2.5v3c0 1 .5 1.5 1.5 2.5-1 1-1.5 1.5-1.5 2.5v3c0 1.5-1 2.5-2.5 2.5" />
         </>
     ),
 };

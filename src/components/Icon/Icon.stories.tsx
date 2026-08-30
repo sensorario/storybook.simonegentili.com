@@ -22,6 +22,7 @@ const ALL_NAMES: IconName[] = [
     'edit',
     'help-circle',
     'check',
+    'x',
     'file-plus',
     'link',
     'share-2',
@@ -30,6 +31,9 @@ const ALL_NAMES: IconName[] = [
     'printer',
     'eye',
     'columns',
+    'tech-node',
+    'tech-go',
+    'tech-php',
 ];
 
 export const AllIcons: Story = {
