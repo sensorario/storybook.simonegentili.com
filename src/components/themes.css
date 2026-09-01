@@ -16,6 +16,16 @@
   --font-size: 14px;
   --font-family: Arial, sans-serif;
   --font-size-h1: calc(var(--font-size) * 1.5);
+
+  /* Button: solid pill, distinct from the neutral --primary-* surface
+     tokens above (those are shared with Footer/Modal and must stay neutral). */
+  --button-bg: #6f9cf7;
+  --button-bg-hover: #5480e6;
+  --button-color: #fff;
+  --button-radius: 999px;
+  --button-shadow: 0 1px 2px rgba(84, 128, 230, 0.12), 0 1px 3px rgba(84, 128, 230, 0.1);
+  --button-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --button-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .theme-dark {
@@ -29,4 +39,8 @@
   --input-bg: #333;
   --input-border: #555;
   --input-font: 1rem;
+
+  --button-bg: #6f9cf7;
+  --button-bg-hover: #86aefc;
+  --button-color: #fff;
 }

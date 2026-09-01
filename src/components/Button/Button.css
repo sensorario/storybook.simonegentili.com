@@ -1,17 +1,32 @@
 @import '../themes.css';
 .custom-button {
-  padding: 8px 16px;
-  border-radius: var(--primary-radius);
-  border: 1px solid var(--primary-border);
-  background: var(--primary-bg);
+  padding: 8px 20px;
+  border-radius: var(--button-radius);
+  border: none;
+  background: var(--button-bg);
+  color: var(--button-color);
   cursor: pointer;
   font-size: var(--primary-font);
-  transition: background 0.2s;
+  font-weight: 600;
   font-family: var(--font-family);
+  box-shadow: var(--button-shadow);
+  transition:
+    background 0.15s var(--button-ease-standard),
+    transform var(--button-ease-bounce) 0.2s;
 }
 
-.custom-button:hover {
-  background: var(--primary-hover-bg);
+.custom-button:hover:not(:disabled) {
+  background: var(--button-bg-hover);
+  transform: translateY(-1px);
+}
+
+.custom-button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.custom-button:disabled {
+  opacity: 0.6;
+  cursor: default;
 }
 
 .custom-button-with-icon {
