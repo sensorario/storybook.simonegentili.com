@@ -26,6 +26,26 @@
   --button-shadow: 0 1px 2px rgba(84, 128, 230, 0.12), 0 1px 3px rgba(84, 128, 230, 0.1);
   --button-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
   --button-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Accent + muted-text + elevation tokens, added for ColorPicker/
+     FontPicker/Toggle (the first shared components that need an "active/
+     selected" state and a floating popover, not just the flat --primary-*
+     surface or the solid --button-* pill). Values carried over as-is from
+     eddiethor.simonegentili.com's own theme (--color-primary/-soft,
+     --color-ink-muted, --shadow-1/-2 in its App.css) rather than invented
+     fresh, since that's the one already-shipped look these three
+     components are being extracted from. Generic names (not "cover-*" or
+     eddiethor-specific) so any consuming app can adopt them.
+     --accent deliberately doesn't reuse --button-bg: a Toggle's "on" track
+     or a picker option's "selected" highlight sits right next to solid
+     Button pills in real layouts, and needs its own less saturated blue to
+     read as a state indicator rather than a second call-to-action. */
+  --accent: #3d5fc4;
+  --accent-strong: #2e4aa0;
+  --accent-soft: #e2e7f8;
+  --ink-muted: #647089;
+  --shadow-1: 0 1px 2px rgba(15, 23, 42, 0.08), 0 1px 3px rgba(15, 23, 42, 0.06);
+  --shadow-2: 0 4px 12px rgba(15, 23, 42, 0.12);
 }
 
 .theme-dark {
@@ -43,4 +63,14 @@
   --button-bg: #6f9cf7;
   --button-bg-hover: #86aefc;
   --button-color: #fff;
+
+  /* --accent kept the same blue as light mode (same convention --button-bg
+     already uses above) - only the soft/shadow variants, which exist to
+     sit against a surface color, actually need to change with it. */
+  --accent: #6f9cf7;
+  --accent-strong: #86aefc;
+  --accent-soft: rgba(111, 156, 247, 0.18);
+  --ink-muted: #9aa3b5;
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.24);
+  --shadow-2: 0 4px 12px rgba(0, 0, 0, 0.4);
 }

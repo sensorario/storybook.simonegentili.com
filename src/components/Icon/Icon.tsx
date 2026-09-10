@@ -20,6 +20,11 @@ export type IconName =
     | 'printer'
     | 'eye'
     | 'columns'
+    | 'sidebar-left'
+    | 'sidebar-right'
+    | 'play'
+    | 'pause'
+    | 'volume-2'
     | 'tech-node'
     | 'tech-go'
     | 'tech-php';
@@ -113,6 +118,41 @@ const ICON_PATHS: Record<IconName, React.ReactNode> = {
         <>
             <rect x="3" y="4" width="8" height="16" rx="1.5" />
             <rect x="13" y="4" width="8" height="16" rx="1.5" />
+        </>
+    ),
+    // A single frame with one side filled solid, not two independent
+    // outlined rects like `columns` above - `columns` says "this layout has
+    // two columns", these say "*this specific side* is the one that
+    // toggles", the same "frame + filled side" pictogram VS Code's own
+    // Toggle Primary/Secondary Side Bar commands use. The filled rect
+    // breaks from every other icon's stroke-only look on purpose (fill
+    // instead of stroke, explicit stroke="none" so it doesn't inherit the
+    // outer <svg>'s own stroke) - no other shape here needs to read as
+    // "solid" rather than "outlined".
+    'sidebar-left': (
+        <>
+            <rect x="3" y="4" width="18" height="16" rx="2" />
+            <rect x="4" y="5" width="6" height="14" rx="1" fill="currentColor" stroke="none" />
+        </>
+    ),
+    'sidebar-right': (
+        <>
+            <rect x="3" y="4" width="18" height="16" rx="2" />
+            <rect x="14" y="5" width="6" height="14" rx="1" fill="currentColor" stroke="none" />
+        </>
+    ),
+    play: <polygon points="5 3 19 12 5 21 5 3" />,
+    pause: (
+        <>
+            <rect x="6" y="4" width="4" height="16" rx="1" />
+            <rect x="14" y="4" width="4" height="16" rx="1" />
+        </>
+    ),
+    'volume-2': (
+        <>
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
         </>
     ),
     'tech-node': <polygon points="12,3 19.8,7.5 19.8,16.5 12,21 4.2,16.5 4.2,7.5" />,

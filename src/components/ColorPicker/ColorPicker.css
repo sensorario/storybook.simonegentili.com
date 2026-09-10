@@ -1,0 +1,89 @@
+@import '../themes.css';
+
+.sg-color-picker {
+  position: relative;
+  font-family: var(--font-family);
+}
+
+.sg-color-picker-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: var(--input-radius);
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  font-size: 13px;
+  font-family: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.sg-color-picker-toggle-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sg-color-picker-swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  flex: 0 0 auto;
+}
+
+.sg-color-picker-popover {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 30;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: var(--input-radius);
+  box-shadow: var(--shadow-1);
+  padding: 10px;
+  width: 170px;
+}
+
+.sg-color-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+}
+
+.sg-color-picker-swatch-button {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  padding: 0;
+}
+
+.sg-color-picker-swatch-button.active {
+  border: 2px solid var(--accent);
+}
+
+.sg-color-picker-custom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--input-border);
+  font-size: 11px;
+  color: var(--ink-muted);
+  cursor: pointer;
+}
+
+.sg-color-picker-custom input[type='color'] {
+  width: 26px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}

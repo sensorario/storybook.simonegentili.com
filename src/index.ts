@@ -10,3 +10,6 @@ export * from './components/Authenticator/Authenticator';
 export * from './components/LoginModal/LoginModal';
 export * from './components/SetPasswordModal/SetPasswordModal';
 export * from './components/Modal/Modal';
+export * from './components/ColorPicker/ColorPicker';
+export * from './components/FontPicker/FontPicker';
+export * from './components/Toggle/Toggle';
