@@ -1,0 +1,39 @@
+@import '../themes.css';
+
+.cookie-consent {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px 32px;
+  background-color: var(--primary-bg);
+  border-top: 1px solid var(--primary-border);
+  font-family: var(--font-family);
+  font-size: 14px;
+  color: #555;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.cookie-consent-text {
+  margin: 0;
+  flex: 1 1 320px;
+}
+
+.cookie-consent a {
+  color: #1ea7fd;
+  text-decoration: none;
+}
+
+.cookie-consent a:hover {
+  text-decoration: underline;
+}
+
+.cookie-consent-accept {
+  flex: 0 0 auto;
+}
