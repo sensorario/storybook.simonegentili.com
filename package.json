@@ -1,11 +1,11 @@
 {
   "name": "@sensorario/sg-components",
-  "version": "0.0.92",
+  "version": "0.0.94",
   "type": "module",
   "private": false,
   "scripts": {
     "dev": "vite",
-    "build": "npm version patch --no-git-tag-version && tsc -b && vite build",
+    "build": "npm version patch --no-git-tag-version && tsc -b && vite build && tsc -p tsconfig.build.json",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
@@ -22,8 +22,8 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/index.es.js",
       "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
       "style": "./dist/sg-components.css"
     }
   },
