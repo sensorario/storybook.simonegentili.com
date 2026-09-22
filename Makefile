@@ -1,4 +1,4 @@
-.PHONY: deploy deploy-log publish
+.PHONY: deploy deploy-log build publish
 
 deploy:
 	@nohup ./scripts/deploy.sh >/dev/null 2>&1 & disown
@@ -7,7 +7,9 @@ deploy:
 deploy-log:
 	@tail -f log/deploy/latest.log
 
-publish:
+build:
 	npm version patch --no-git-tag-version
 	npm run build
+
+publish:
 	npm publish
