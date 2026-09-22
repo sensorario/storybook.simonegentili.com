@@ -15,3 +15,4 @@ export * from './components/PasswordInput/PasswordInput';
 export * from './components/ColorPicker/ColorPicker';
 export * from './components/FontPicker/FontPicker';
 export * from './components/Toggle/Toggle';
+export * from './components/AppLauncher/AppLauncher';

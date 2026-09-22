@@ -27,7 +27,8 @@ export type IconName =
     | 'volume-2'
     | 'tech-node'
     | 'tech-go'
-    | 'tech-php';
+    | 'tech-php'
+    | 'grid';
 
 const ICON_PATHS: Record<IconName, React.ReactNode> = {
     menu: (
@@ -162,6 +163,14 @@ const ICON_PATHS: Record<IconName, React.ReactNode> = {
             <path d="M9 4c-1.5 0-2.5 1-2.5 2.5v3c0 1-.5 1.5-1.5 2.5 1 1 1.5 1.5 1.5 2.5v3c0 1.5 1 2.5 2.5 2.5" />
             <path d="M15 4c1.5 0 2.5 1 2.5 2.5v3c0 1 .5 1.5 1.5 2.5-1 1-1.5 1.5-1.5 2.5v3c0 1.5-1 2.5-2.5 2.5" />
         </>
+    ),
+    // Google-style app launcher: a 3x3 grid of solid dots.
+    grid: (
+        <g fill="currentColor" stroke="none">
+            {[5, 12, 19].flatMap((y) =>
+                [5, 12, 19].map((x) => <circle key={`${x}-${y}`} cx={x} cy={y} r="2" />)
+            )}
+        </g>
     ),
 };
 

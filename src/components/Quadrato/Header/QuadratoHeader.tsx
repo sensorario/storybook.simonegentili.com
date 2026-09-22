@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
 import { Header } from '../../Header/Header';
+import { AppLauncher } from '../../AppLauncher/AppLauncher';
 import Authenticator from '../../Authenticator/Authenticator';
 import LoginModal from '../../LoginModal/LoginModal';
 import './QuadratoHeader.css';
@@ -41,6 +42,8 @@ interface QuadratoHeaderProps {
   onLogout?: () => void;
   /** Notified on mount and after every login/logout with the current auth state. */
   onUserAuthenticated?: (isAuthenticated: boolean, username: string | null) => void;
+  /** Endpoint of the app launcher menu. Default: the Heimdall-managed list on api.simonegentili.com. */
+  appsUrl?: string;
 }
 
 export interface QuadratoHeaderHandle {
@@ -58,6 +61,7 @@ export const QuadratoHeader = forwardRef<QuadratoHeaderHandle, QuadratoHeaderPro
   onLogin,
   onLogout,
   onUserAuthenticated,
+  appsUrl,
 }, ref) => {
   const [isAuthenticated, setIsAuthenticated] = useState(() => hasCookie(cookieName));
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -93,6 +97,7 @@ export const QuadratoHeader = forwardRef<QuadratoHeaderHandle, QuadratoHeaderPro
   return (
     <>
       <Header onNavigate={onNavigate} title={title} homePageKey={homePageKey} className="quadrato-header">
+        <AppLauncher appsUrl={appsUrl} />
         <div className="quadrato-header-auth">
           {isAuthenticated && effectiveUsername && (
             <span className="quadrato-header-username">{effectiveUsername}</span>
