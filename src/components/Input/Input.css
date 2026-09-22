@@ -13,7 +13,8 @@
 }
 
 .input-field {
-  width: calc(100% - 16px);
+  width: 100%;
+  box-sizing: border-box;
   border-radius: var(--radius);
   border-width: 1px;
   border-style: solid;

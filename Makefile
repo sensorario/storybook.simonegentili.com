@@ -8,5 +8,6 @@ deploy-log:
 	@tail -f log/deploy/latest.log
 
 publish:
+	npm version patch --no-git-tag-version
 	npm run build
 	npm publish
