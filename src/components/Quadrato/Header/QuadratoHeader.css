@@ -13,4 +13,9 @@
 .quadrato-header-username {
   font-size: var(--font-size);
   color: #333;
+  transition: color 0.2s ease;
+}
+
+.quadrato-header-username:hover {
+  color: var(--accent);
 }

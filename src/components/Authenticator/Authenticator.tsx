@@ -14,10 +14,8 @@ export const Authenticator: React.FC<AuthenticatorProps> = ({
 }: AuthenticatorProps) => {
     return <>{
         isLoggedIn
-            ? <button onClick={handleLogout}
-                style={{ fontSize: '0.9rem', padding: '0.4rem 1rem' }}>logout</button>
-            : <button onClick={handleLogin}
-                style={{ fontSize: '0.9rem', padding: '0.4rem 1rem' }}>Login</button>
+            ? <button onClick={handleLogout} className="sg-authenticator-button">logout</button>
+            : <button onClick={handleLogin} className="sg-authenticator-button">Login</button>
     }</>
 }
 

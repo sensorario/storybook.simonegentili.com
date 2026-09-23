@@ -1,1 +1,18 @@
 @import '../themes.css';
+
+.sg-authenticator-button {
+  font-size: 0.9rem;
+  font-family: var(--font-family);
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--primary-border);
+  border-radius: var(--radius);
+  background: var(--primary-bg);
+  color: #333;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.sg-authenticator-button:hover {
+  background: var(--primary-hover-bg);
+  border-color: var(--ink-muted);
+}
