@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
 import { Header } from '../../Header/Header';
+import { AppAccessGate } from '../../AppAccessGate/AppAccessGate';
 import { AppLauncher } from '../../AppLauncher/AppLauncher';
 import Authenticator from '../../Authenticator/Authenticator';
 import LoginModal from '../../LoginModal/LoginModal';
@@ -44,6 +45,8 @@ interface QuadratoHeaderProps {
   onUserAuthenticated?: (isAuthenticated: boolean, username: string | null) => void;
   /** Endpoint of the app launcher menu. Default: the Heimdall-managed list on api.simonegentili.com. */
   appsUrl?: string;
+  /** Base URL of the Heimdall API, used to check whether the logged-in user may use this app. */
+  heimdallUrl?: string;
 }
 
 export interface QuadratoHeaderHandle {
@@ -62,6 +65,7 @@ export const QuadratoHeader = forwardRef<QuadratoHeaderHandle, QuadratoHeaderPro
   onLogout,
   onUserAuthenticated,
   appsUrl,
+  heimdallUrl,
 }, ref) => {
   const [isAuthenticated, setIsAuthenticated] = useState(() => hasCookie(cookieName));
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -70,8 +74,8 @@ export const QuadratoHeader = forwardRef<QuadratoHeaderHandle, QuadratoHeaderPro
     openLoginModal: () => setShowLoginModal(true),
   }));
 
-  const effectiveUsername =
-    username ?? (isAuthenticated ? decodeJwtField(getCookieValue(cookieName) ?? '', usernameJwtField) : null);
+  const token = isAuthenticated ? getCookieValue(cookieName) : null;
+  const effectiveUsername = username ?? (token ? decodeJwtField(token, usernameJwtField) : null);
 
   useEffect(() => {
     onUserAuthenticated?.(isAuthenticated, isAuthenticated ? effectiveUsername : null);
@@ -97,7 +101,7 @@ export const QuadratoHeader = forwardRef<QuadratoHeaderHandle, QuadratoHeaderPro
   return (
     <>
       <Header onNavigate={onNavigate} title={title} homePageKey={homePageKey} className="quadrato-header">
-        <AppLauncher appsUrl={appsUrl} />
+        <AppLauncher appsUrl={appsUrl} token={token} />
         <div className="quadrato-header-auth">
           {isAuthenticated && effectiveUsername && (
             <span className="quadrato-header-username">{effectiveUsername}</span>
@@ -109,6 +113,7 @@ export const QuadratoHeader = forwardRef<QuadratoHeaderHandle, QuadratoHeaderPro
           />
         </div>
       </Header>
+      <AppAccessGate token={token} heimdallUrl={heimdallUrl} />
       <LoginModal open={showLoginModal} onClose={() => setShowLoginModal(false)} onLogin={handleLogin} />
     </>
   );

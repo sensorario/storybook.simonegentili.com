@@ -16,3 +16,4 @@ export * from './components/ColorPicker/ColorPicker';
 export * from './components/FontPicker/FontPicker';
 export * from './components/Toggle/Toggle';
 export * from './components/AppLauncher/AppLauncher';
+export * from './components/AppAccessGate/AppAccessGate';

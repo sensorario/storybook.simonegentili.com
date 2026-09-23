@@ -1,0 +1,40 @@
+@import '../themes.css';
+
+/* Below the sticky .quadrato-header (z-index 999), so login/logout and the launcher stay usable. */
+.sg-access-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+  background: var(--primary-bg);
+  font-family: var(--font-family);
+}
+
+.sg-access-gate-card {
+  max-width: 420px;
+  padding: 24px;
+  border: 1px solid var(--primary-border);
+  border-radius: calc(var(--radius) * 3);
+  background: var(--modal-bg);
+  box-shadow: var(--shadow-2);
+  text-align: center;
+}
+
+.sg-access-gate-card h2 {
+  margin: 0 0 12px;
+  font-size: var(--font-size-h1);
+  color: var(--modal-title-color);
+}
+
+.sg-access-gate-card p {
+  margin: 0 0 16px;
+  color: var(--ink-muted);
+}
+
+.sg-access-gate-card .sg-access-gate-error {
+  color: #c0392b;
+}

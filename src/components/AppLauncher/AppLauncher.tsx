@@ -14,24 +14,28 @@ interface AppLauncherProps {
     appsUrl?: string;
     /** Accessible name of the grid button - this library has no i18n of its own. */
     label?: string;
+    /** Logged-in user's JWT: the API then lists only the apps this user may use. */
+    token?: string | null;
 }
 
 // Google-style "grid" menu listing every simonegentili.com app. The list is
 // fetched on first open, not on mount, so pages that never open it don't pay
 // for the request.
-export const AppLauncher = ({ appsUrl = DEFAULT_APPS_URL, label = 'App' }: AppLauncherProps) => {
+export const AppLauncher = ({ appsUrl = DEFAULT_APPS_URL, label = 'App', token = null }: AppLauncherProps) => {
     const [open, setOpen] = useState(false);
-    const [apps, setApps] = useState<LauncherApp[] | null>(null);
+    // Keyed by token, so logging in or out makes the list stale and it's refetched.
+    const [loaded, setLoaded] = useState<{ token: string | null; apps: LauncherApp[] } | null>(null);
+    const apps = loaded?.token === token ? loaded.apps : null;
     const [failed, setFailed] = useState(false);
     const rootRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if (!open || apps !== null) return;
-        fetch(appsUrl)
+        fetch(appsUrl, token ? { headers: { Authorization: `Bearer ${token}` } } : undefined)
             .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
-            .then((data: { apps: LauncherApp[] }) => setApps(data.apps))
+            .then((data: { apps: LauncherApp[] }) => setLoaded({ token, apps: data.apps }))
             .catch(() => setFailed(true));
-    }, [open, apps, appsUrl]);
+    }, [open, apps, appsUrl, token]);
 
     useEffect(() => {
         if (!open) return;
