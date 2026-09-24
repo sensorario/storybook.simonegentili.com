@@ -7,6 +7,8 @@ export const DEFAULT_APPS_URL = 'https://api.simonegentili.com/heimdall/launcher
 export type LauncherApp = {
     name: string;
     url: string;
+    /** Not granted to the logged-in user: opening it shows AppAccessGate's "Richiedi accesso". */
+    locked?: boolean;
 };
 
 interface AppLauncherProps {
@@ -82,16 +84,27 @@ export const AppLauncher = ({ appsUrl = DEFAULT_APPS_URL, label = 'App', token =
                                 <li key={app.url}>
                                     <a
                                         href={app.url}
-                                        className={
-                                            new URL(app.url).origin === window.location.origin
-                                                ? 'sg-app-launcher-app current'
-                                                : 'sg-app-launcher-app'
-                                        }
+                                        className={[
+                                            'sg-app-launcher-app',
+                                            new URL(app.url).origin === window.location.origin ? 'current' : '',
+                                            app.locked ? 'locked' : '',
+                                        ]
+                                            .filter(Boolean)
+                                            .join(' ')}
+                                        title={app.locked ? `${app.name}: accesso su richiesta` : undefined}
                                     >
                                         <span className="sg-app-launcher-tile" aria-hidden="true">
                                             {app.name.charAt(0).toUpperCase()}
+                                            {app.locked && (
+                                                <span className="sg-app-launcher-lock">
+                                                    <Icon name="lock" size={12} />
+                                                </span>
+                                            )}
                                         </span>
-                                        <span className="sg-app-launcher-name">{app.name}</span>
+                                        <span className="sg-app-launcher-name">
+                                            {app.name}
+                                            {app.locked && <span className="sg-visually-hidden"> (accesso su richiesta)</span>}
+                                        </span>
                                     </a>
                                 </li>
                             ))}

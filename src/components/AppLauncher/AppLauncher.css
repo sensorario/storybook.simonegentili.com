@@ -97,3 +97,39 @@
   color: var(--ink-muted);
   font-size: 13px;
 }
+
+.sg-app-launcher-tile {
+  position: relative;
+}
+
+.sg-app-launcher-app.locked .sg-app-launcher-tile {
+  background: var(--ink-muted);
+}
+
+.sg-app-launcher-app.locked .sg-app-launcher-name {
+  color: var(--ink-muted);
+}
+
+.sg-app-launcher-lock {
+  position: absolute;
+  right: -6px;
+  bottom: -6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--modal-bg);
+  border-radius: 50%;
+  background: var(--modal-title-color);
+  color: var(--modal-bg);
+}
+
+.sg-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

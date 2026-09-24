@@ -9,6 +9,7 @@ const DEMO_APPS = {
         { name: 'Gantt', url: 'https://gantt.simonegentili.com' },
         { name: 'Guitar', url: 'https://guitar.simonegentili.com' },
         { name: 'Bookcrossing', url: 'https://bookcrossing.simonegentili.com' },
+        { name: 'Hermesmetis', url: 'https://hermesmetis.simonegentili.com', locked: true },
     ],
 };
 

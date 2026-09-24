@@ -28,7 +28,8 @@ export type IconName =
     | 'tech-node'
     | 'tech-go'
     | 'tech-php'
-    | 'grid';
+    | 'grid'
+    | 'lock';
 
 const ICON_PATHS: Record<IconName, React.ReactNode> = {
     menu: (
@@ -171,6 +172,12 @@ const ICON_PATHS: Record<IconName, React.ReactNode> = {
                 [5, 12, 19].map((x) => <circle key={`${x}-${y}`} cx={x} cy={y} r="2" />)
             )}
         </g>
+    ),
+    lock: (
+        <>
+            <rect x="5" y="11" width="14" height="10" rx="2" />
+            <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+        </>
     ),
 };
 
