@@ -33,5 +33,11 @@
     },
     "languageSwitcher": {
         "label": "Language"
+    },
+    "status": {
+        "loading": "Loading…"
+    },
+    "badge": {
+        "remove": "Remove"
     }
 }

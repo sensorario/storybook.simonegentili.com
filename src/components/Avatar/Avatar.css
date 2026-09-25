@@ -1,0 +1,23 @@
+@import '../themes.css';
+
+.sg-avatar {
+  --avatar-size: 32px;
+  --avatar-bg: var(--sg-accent);
+  --avatar-color: var(--sg-on-accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--avatar-bg);
+  color: var(--avatar-color);
+  box-shadow: var(--sg-shadow-1);
+  font-family: var(--font-family);
+  font-size: calc(var(--avatar-size) * 0.42);
+  font-weight: 600;
+  user-select: none;
+}

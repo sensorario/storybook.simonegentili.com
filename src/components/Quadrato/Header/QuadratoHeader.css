@@ -10,14 +10,6 @@
   gap: 12px;
 }
 
-.quadrato-header-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: var(--sg-shadow-1);
-}
-
 .quadrato-header-username {
   font-size: var(--font-size);
   color: var(--sg-text);

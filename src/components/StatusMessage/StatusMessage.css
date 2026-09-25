@@ -1,0 +1,44 @@
+@import '../themes.css';
+
+.sg-status {
+  --status-color: var(--sg-text-muted);
+  --status-bg: var(--sg-surface-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--status-color);
+  font-family: var(--font-family);
+  font-size: var(--primary-font);
+}
+
+.sg-status--error {
+  --status-color: var(--sg-danger);
+  --status-bg: var(--sg-danger-soft);
+}
+
+.sg-status--boxed {
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  background: var(--status-bg);
+}
+
+.sg-status-spinner {
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--sg-border);
+  border-top-color: var(--sg-accent);
+  border-radius: 50%;
+  animation: sg-status-spin 0.8s linear infinite;
+}
+
+@keyframes sg-status-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sg-status-spinner {
+    animation-duration: 2.4s;
+  }
+}

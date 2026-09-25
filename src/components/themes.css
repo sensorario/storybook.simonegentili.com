@@ -31,6 +31,9 @@
   --sg-color-blue-600: #3d5fc4;
   --sg-color-blue-700: #2e4aa0;
   --sg-color-sky-500: #1ea7fd;
+  --sg-color-green-50: #e8f5e9;
+  --sg-color-green-400: #66bb6a;
+  --sg-color-green-700: #2e7d32;
   --sg-color-red-50: #ffe5e5;
   --sg-color-red-400: #e57373;
   --sg-color-red-600: #c0392b;
@@ -52,6 +55,8 @@
   --sg-action: var(--sg-color-blue-400);
   --sg-action-hover: var(--sg-color-blue-500);
   --sg-link: var(--sg-color-sky-500);
+  --sg-success: var(--sg-color-green-700);
+  --sg-success-soft: var(--sg-color-green-50);
   --sg-danger: var(--sg-color-red-600);
   --sg-danger-soft: var(--sg-color-red-50);
   --sg-overlay: rgba(0, 0, 0, 0.3);
@@ -118,6 +123,8 @@
   --sg-accent-soft: rgba(111, 156, 247, 0.18);
   --sg-action-hover: var(--sg-color-blue-300);
   --sg-link: var(--sg-color-blue-300);
+  --sg-success: var(--sg-color-green-400);
+  --sg-success-soft: rgba(102, 187, 106, 0.15);
   --sg-danger: var(--sg-color-red-400);
   --sg-danger-soft: rgba(229, 115, 115, 0.15);
   --sg-overlay: rgba(0, 0, 0, 0.6);

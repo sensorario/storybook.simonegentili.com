@@ -1,0 +1,59 @@
+@import '../themes.css';
+
+.sg-card {
+  --card-bg: var(--sg-surface);
+  --card-border: var(--sg-border-subtle);
+  --card-radius: calc(var(--radius) * 2);
+  --card-shadow: var(--sg-shadow-1);
+  --card-shadow-hover: var(--sg-shadow-2);
+  --card-padding: 16px;
+  display: block;
+  box-sizing: border-box;
+  padding: var(--card-padding);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  color: var(--sg-text);
+  font-family: var(--font-family);
+  text-align: left;
+  text-decoration: none;
+}
+
+.sg-card--mini {
+  --card-padding: 8px 12px;
+}
+
+.sg-card--interactive {
+  cursor: pointer;
+  transition:
+    box-shadow 0.18s var(--button-ease-standard),
+    transform 0.2s var(--button-ease-bounce),
+    border-color 0.18s var(--button-ease-standard);
+}
+
+.sg-card--interactive:hover,
+.sg-card--interactive:focus-visible {
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--sg-accent);
+  transform: translateY(-2px);
+}
+
+.sg-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.sg-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 12px;
+}
+
+.sg-card-actions a {
+  color: var(--sg-link);
+}

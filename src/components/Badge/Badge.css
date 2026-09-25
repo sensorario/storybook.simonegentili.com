@@ -1,0 +1,81 @@
+@import '../themes.css';
+
+.sg-badge {
+  --badge-bg: var(--sg-surface-muted);
+  --badge-border: var(--sg-border);
+  --badge-color: var(--sg-text);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border: 1px solid var(--badge-border);
+  border-radius: 999px;
+  background: var(--badge-bg);
+  color: var(--badge-color);
+  font-family: var(--font-family);
+  font-size: 13px;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.sg-badge--accent,
+.sg-badge--selected {
+  --badge-bg: var(--sg-accent-soft);
+  --badge-border: var(--sg-accent);
+  --badge-color: var(--sg-accent-strong);
+}
+
+.sg-badge--success {
+  --badge-bg: var(--sg-success-soft);
+  --badge-border: var(--sg-success);
+  --badge-color: var(--sg-success);
+}
+
+.sg-badge--danger {
+  --badge-bg: var(--sg-danger-soft);
+  --badge-border: var(--sg-danger);
+  --badge-color: var(--sg-danger);
+}
+
+.sg-badge:has(.sg-badge-toggle) {
+  padding: 0;
+  transition: transform 0.2s var(--button-ease-bounce);
+}
+
+.sg-badge:has(.sg-badge-toggle):hover {
+  transform: translateY(-1px);
+}
+
+.sg-badge-toggle {
+  padding: 3px 10px;
+  border: none;
+  border-radius: inherit;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.sg-badge:has(.sg-badge-remove) {
+  padding-right: 3px;
+}
+
+.sg-badge-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  color: inherit;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.sg-badge-remove:hover {
+  background: var(--sg-surface-hover);
+}

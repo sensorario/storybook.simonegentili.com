@@ -2,6 +2,7 @@ import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
 import { Header } from '../../Header/Header';
 import { AppAccessGate, DEFAULT_HEIMDALL_URL } from '../../AppAccessGate/AppAccessGate';
 import { AppLauncher } from '../../AppLauncher/AppLauncher';
+import { Avatar } from '../../Avatar/Avatar';
 import Authenticator from '../../Authenticator/Authenticator';
 import LoginModal from '../../LoginModal/LoginModal';
 import './QuadratoHeader.css';
@@ -128,7 +129,7 @@ export const QuadratoHeader = forwardRef<QuadratoHeaderHandle, QuadratoHeaderPro
         <AppLauncher appsUrl={appsUrl} token={token} />
         <div className="quadrato-header-auth">
           {isAuthenticated && avatarSrc && (
-            <img className="quadrato-header-avatar" src={avatarSrc} alt="" />
+            <Avatar src={avatarSrc} />
           )}
           {isAuthenticated && effectiveUsername && (
             <span className="quadrato-header-username">{effectiveUsername}</span>

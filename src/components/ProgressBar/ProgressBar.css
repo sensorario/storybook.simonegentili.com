@@ -1,0 +1,44 @@
+@import '../themes.css';
+
+.sg-progress {
+  --progress-height: 8px;
+  --progress-track: var(--sg-surface-hover);
+  --progress-fill: var(--sg-accent);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-family);
+}
+
+.sg-progress--sm {
+  --progress-height: 6px;
+}
+
+.sg-progress--success {
+  --progress-fill: var(--sg-success);
+}
+
+.sg-progress--danger {
+  --progress-fill: var(--sg-danger);
+}
+
+.sg-progress-track {
+  flex: 1;
+  height: var(--progress-height);
+  border-radius: 999px;
+  background: var(--progress-track);
+  overflow: hidden;
+}
+
+.sg-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--progress-fill);
+  transition: width 0.2s var(--button-ease-standard);
+}
+
+.sg-progress-label {
+  font-size: 12px;
+  color: var(--sg-text-muted);
+  white-space: nowrap;
+}

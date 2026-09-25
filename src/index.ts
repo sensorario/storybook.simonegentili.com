@@ -20,3 +20,8 @@ export * from './components/AppAccessGate/AppAccessGate';
 export * from './components/LanguageSwitcher/LanguageSwitcher';
 export { createI18n, sgI18n, SUPPORTED_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_COOKIE, readLanguageCookie } from './i18n';
 export type { SupportedLanguage } from './i18n';
+export * from './components/ProgressBar/ProgressBar';
+export * from './components/StatusMessage/StatusMessage';
+export * from './components/Card/Card';
+export * from './components/Badge/Badge';
+export * from './components/Avatar/Avatar';
