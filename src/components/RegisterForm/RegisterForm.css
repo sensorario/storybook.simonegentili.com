@@ -1,0 +1,10 @@
+@import '../themes.css';
+
+.sg-register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.sg-register-form .custom-button {
+  width: 100%;
+}

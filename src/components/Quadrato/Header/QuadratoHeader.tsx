@@ -5,31 +5,13 @@ import { AppLauncher } from '../../AppLauncher/AppLauncher';
 import { Avatar } from '../../Avatar/Avatar';
 import Authenticator from '../../Authenticator/Authenticator';
 import LoginModal from '../../LoginModal/LoginModal';
+import { ACCESS_TOKEN_COOKIE, getAccessToken, getTokenClaim } from '../../../auth';
 import './QuadratoHeader.css';
-
-const DEFAULT_COOKIE_NAME = 'simonegentili.com-access-token';
 
 /** Dispatch on `window` with the new avatar (data URL or null) as `detail` after changing it, so the header updates without a reload. */
 export const AVATAR_CHANGE_EVENT = 'sg-avatar-change';
 
-const hasCookie = (name: string): boolean =>
-  document.cookie
-    .split('; ')
-    .some((entry) => entry.startsWith(`${name}=`) && entry.slice(name.length + 1).length > 0);
-
-const getCookieValue = (name: string): string | null => {
-  const entry = document.cookie.split('; ').find((e) => e.startsWith(`${name}=`));
-  return entry ? entry.slice(name.length + 1) : null;
-};
-
-const decodeJwtField = (token: string, field: string): string | null => {
-  try {
-    const payload = JSON.parse(atob(token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
-    return payload[field] ?? null;
-  } catch {
-    return null;
-  }
-};
+const hasCookie = (name: string): boolean => getAccessToken(name) !== null;
 
 interface QuadratoHeaderProps {
   title?: string;
@@ -62,7 +44,7 @@ export const QuadratoHeader = forwardRef<QuadratoHeaderHandle, QuadratoHeaderPro
   title = 'Quadrato',
   homePageKey = 'home',
   onNavigate,
-  cookieName = DEFAULT_COOKIE_NAME,
+  cookieName = ACCESS_TOKEN_COOKIE,
   username = null,
   usernameJwtField = 'sub',
   onLogin,
@@ -78,8 +60,8 @@ export const QuadratoHeader = forwardRef<QuadratoHeaderHandle, QuadratoHeaderPro
     openLoginModal: () => setShowLoginModal(true),
   }));
 
-  const token = isAuthenticated ? getCookieValue(cookieName) : null;
-  const effectiveUsername = username ?? (token ? decodeJwtField(token, usernameJwtField) : null);
+  const token = isAuthenticated ? getAccessToken(cookieName) : null;
+  const effectiveUsername = username ?? getTokenClaim(token, usernameJwtField);
 
   // keyed by token, so a stale avatar never shows after logout or a user switch
   const [avatar, setAvatar] = useState<{ token: string; src: string | null } | null>(null);

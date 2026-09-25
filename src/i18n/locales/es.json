@@ -43,5 +43,19 @@
     "confirm": {
         "confirm": "Confirmar",
         "cancel": "Cancelar"
+    },
+    "version": {
+        "label": "Versión"
+    },
+    "loginPrompt": {
+        "message": "Inicia sesión para continuar."
+    },
+    "register": {
+        "title": "Registrarse",
+        "email": "Correo electrónico",
+        "placeholder": "Tu correo electrónico",
+        "submit": "Registrarse",
+        "sending": "Enviando…",
+        "sent": "Revisa tu correo: te hemos enviado un enlace para completar el registro."
     }
 }

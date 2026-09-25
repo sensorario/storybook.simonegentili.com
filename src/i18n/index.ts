@@ -1,5 +1,6 @@
 import i18next, { type i18n } from 'i18next';
 import { setI18n } from 'react-i18next';
+import { writeCookie } from '../auth';
 import it from './locales/it.json';
 import en from './locales/en.json';
 import fr from './locales/fr.json';
@@ -31,12 +32,8 @@ export const readLanguageCookie = (): SupportedLanguage | null => {
     return isSupported(value) ? value : null;
 };
 
-// Scoped to .simonegentili.com so every sibling app shares the choice; the
-// browser drops a cookie whose domain doesn't match (e.g. on localhost).
-const writeLanguageCookie = (lng: string) => {
-    const scope = window.location.hostname.endsWith('simonegentili.com') ? '; domain=.simonegentili.com; secure' : '';
-    document.cookie = `${LANGUAGE_COOKIE}=${lng}; path=/; max-age=31536000; samesite=lax${scope}`;
-};
+// Scoped to .simonegentili.com (see cookieScope) so every sibling app shares the choice.
+const writeLanguageCookie = (lng: string) => writeCookie(LANGUAGE_COOKIE, lng, 31536000, 'lax');
 
 // The library owns the instance and its components always pass it to
 // useTranslation explicitly: apps that never call createI18n still get

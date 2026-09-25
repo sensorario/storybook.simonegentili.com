@@ -31,3 +31,8 @@ export * from './components/Select/Select';
 export * from './components/FormField/FormField';
 export * from './components/Tabs/Tabs';
 import './components/Table/Table.css';
+export * from './components/VersionNumber/VersionNumber';
+export * from './components/LoginPrompt/LoginPrompt';
+export * from './components/AuthPage/AuthPage';
+export * from './components/RegisterForm/RegisterForm';
+export { ACCESS_TOKEN_COOKIE, getAccessToken, setAccessToken, clearAccessToken, getTokenClaim } from './auth';
