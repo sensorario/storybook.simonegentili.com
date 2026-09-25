@@ -1,0 +1,6 @@
+@import '../Input/Input.css';
+
+.sg-select {
+  font-family: inherit;
+  cursor: pointer;
+}

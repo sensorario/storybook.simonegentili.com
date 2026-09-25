@@ -56,3 +56,27 @@
   color: var(--ink-muted);
   white-space: nowrap;
 }
+
+.sg-toggle-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sg-toggle--row {
+  width: 100%;
+  gap: 12px;
+  margin: 8px 0;
+}
+
+.sg-toggle--row .sg-toggle-label {
+  order: -2;
+  flex: 1;
+  color: var(--sg-text);
+  font-size: var(--primary-font);
+  white-space: normal;
+}
+
+.sg-toggle--row .sg-toggle-icons {
+  order: -1;
+}

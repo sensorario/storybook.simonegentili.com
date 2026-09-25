@@ -1,0 +1,98 @@
+@import '../themes.css';
+
+.sg-tabs {
+  --tabs-gap: 4px;
+  display: flex;
+  gap: var(--tabs-gap);
+  overflow-x: auto;
+  font-family: var(--font-family);
+  -webkit-overflow-scrolling: touch;
+}
+
+.sg-tab {
+  flex: 0 0 auto;
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  color: var(--sg-text-muted);
+  font: inherit;
+  font-size: var(--primary-font);
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background 0.15s var(--button-ease-standard),
+    color 0.15s var(--button-ease-standard);
+}
+
+.sg-tab:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.sg-tab:focus-visible {
+  outline: 2px solid var(--sg-accent-strong);
+  outline-offset: 2px;
+}
+
+/* underline */
+.sg-tabs--underline {
+  --tabs-gap: 8px;
+  border-bottom: 1px solid var(--sg-border);
+}
+
+.sg-tabs--underline .sg-tab {
+  margin-bottom: -1px;
+  border-bottom: 2px solid transparent;
+}
+
+.sg-tabs--underline .sg-tab:hover:not(:disabled) {
+  color: var(--sg-text);
+}
+
+.sg-tabs--underline .sg-tab--active {
+  border-bottom-color: var(--sg-accent-strong);
+  color: var(--sg-accent-strong);
+  font-weight: 600;
+}
+
+/* pills */
+.sg-tabs--pills .sg-tab {
+  border-radius: 999px;
+  background: var(--sg-surface-muted);
+  color: var(--sg-text);
+}
+
+.sg-tabs--pills .sg-tab:hover:not(:disabled):not(.sg-tab--active) {
+  background: var(--sg-surface-hover);
+}
+
+.sg-tabs--pills .sg-tab--active {
+  background: var(--sg-accent);
+  color: var(--sg-on-accent);
+  box-shadow: var(--sg-shadow-1);
+}
+
+/* segmented */
+.sg-tabs--segmented {
+  padding: 4px;
+  border: 1px solid var(--sg-border);
+  border-radius: 999px;
+  background: var(--sg-surface-muted);
+}
+
+.sg-tabs--segmented .sg-tab {
+  flex: 1;
+  padding: 6px 16px;
+  border-radius: 999px;
+  color: var(--sg-accent-strong);
+  font-weight: 600;
+}
+
+.sg-tabs--segmented .sg-tab:hover:not(:disabled):not(.sg-tab--active) {
+  background: var(--sg-accent-soft);
+}
+
+.sg-tabs--segmented .sg-tab--active {
+  background: var(--sg-accent);
+  color: var(--sg-on-accent);
+}

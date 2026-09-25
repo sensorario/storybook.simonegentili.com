@@ -1,0 +1,47 @@
+@import '../themes.css';
+
+/* CSS only: add class="sg-table" to a plain <table>. Wrap it in
+   .sg-table-scroll when it may be wider than the screen. */
+.sg-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sg-table {
+  --table-border: var(--sg-border-subtle);
+  --table-head-bg: var(--sg-surface-muted);
+  --table-row-hover: var(--sg-surface-muted);
+  --table-cell-padding: 8px 12px;
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--sg-text);
+  font-family: var(--font-family);
+  font-size: var(--primary-font);
+}
+
+.sg-table th,
+.sg-table td {
+  padding: var(--table-cell-padding);
+  border-bottom: 1px solid var(--table-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.sg-table th {
+  background: var(--table-head-bg);
+  color: var(--sg-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.sg-table tbody tr:hover {
+  background: var(--table-row-hover);
+}
+
+.sg-table .sg-table-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}

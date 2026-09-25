@@ -12,18 +12,20 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     // own) instead of removing it - a toolbar button reads as icon-only
     // without losing its accessible name.
     iconOnly?: boolean;
+    variant?: 'primary' | 'secondary' | 'danger';
 };
 
 export const Button: React.FC<ButtonProps> = ({
     label,
     icon,
     iconOnly,
+    variant = 'primary',
     className,
     title,
     ...props
 }) => (
     <button
-        className={['custom-button', icon ? 'custom-button-with-icon' : '', className]
+        className={['custom-button', variant !== 'primary' ? `custom-button--${variant}` : '', icon ? 'custom-button-with-icon' : '', className]
             .filter(Boolean)
             .join(' ')}
         title={title ?? (iconOnly ? label : undefined)}

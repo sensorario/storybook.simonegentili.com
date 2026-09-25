@@ -39,5 +39,9 @@
     },
     "badge": {
         "remove": "Quitar"
+    },
+    "confirm": {
+        "confirm": "Confirmar",
+        "cancel": "Cancelar"
     }
 }

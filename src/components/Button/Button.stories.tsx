@@ -15,3 +15,13 @@ export const Default: Story = {
         label: 'Click me',
     },
 };
+
+export const Variants: Story = {
+    render: () => (
+        <div style={{ display: 'flex', gap: 8 }}>
+            <Button label="Salva" />
+            <Button variant="secondary" label="Annulla" />
+            <Button variant="danger" label="Elimina" />
+        </div>
+    ),
+};

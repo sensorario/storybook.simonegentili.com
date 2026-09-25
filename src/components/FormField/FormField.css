@@ -1,0 +1,32 @@
+@import '../Input/Input.css';
+
+.sg-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+  font-family: var(--font-family);
+}
+
+.sg-field .input-label {
+  margin-bottom: 0;
+}
+
+/* Input/PasswordInput bring their own wrapper spacing, redundant inside a field. */
+.sg-field .input-wrapper {
+  margin-bottom: 0;
+}
+
+.sg-field-hint,
+.sg-field-error {
+  margin: 0;
+  font-size: 12px;
+}
+
+.sg-field-hint {
+  color: var(--sg-text-muted);
+}
+
+.sg-field-error {
+  color: var(--sg-danger);
+}

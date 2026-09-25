@@ -1,0 +1,11 @@
+@import '../themes.css';
+
+.sg-confirm-message {
+  max-width: 420px;
+  color: var(--sg-text);
+  line-height: 1.5;
+}
+
+.sg-confirm-message > p {
+  margin: 0;
+}

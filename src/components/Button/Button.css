@@ -29,6 +29,24 @@
   cursor: default;
 }
 
+.custom-button--secondary {
+  --button-bg: var(--sg-surface);
+  --button-bg-hover: var(--sg-surface-hover);
+  --button-color: var(--sg-text);
+  --button-shadow: none;
+  border: 1px solid var(--sg-border);
+}
+
+.custom-button--danger {
+  --button-bg: var(--sg-danger);
+  --button-bg-hover: var(--sg-danger);
+  --button-color: var(--sg-on-accent);
+}
+
+.custom-button--danger:hover:not(:disabled) {
+  filter: brightness(0.92);
+}
+
 .custom-button-with-icon {
   display: inline-flex;
   align-items: center;

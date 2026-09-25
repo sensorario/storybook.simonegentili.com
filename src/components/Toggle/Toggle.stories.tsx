@@ -17,3 +17,14 @@ export const Default: Story = {
         return <Toggle checked={checked} onChange={setChecked} label="Modalità zen" />;
     },
 };
+
+export const Row: Story = {
+    render: () => {
+        const [checked, setChecked] = useState(true);
+        return (
+            <div style={{ maxWidth: 360 }}>
+                <Toggle layout="row" checked={checked} onChange={setChecked} label="Icone panda" icons={<span aria-hidden="true">🐼 🐼</span>} />
+            </div>
+        );
+    },
+};
