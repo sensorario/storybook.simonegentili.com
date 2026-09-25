@@ -43,5 +43,19 @@
     "confirm": {
         "confirm": "確認",
         "cancel": "キャンセル"
+    },
+    "version": {
+        "label": "バージョン"
+    },
+    "loginPrompt": {
+        "message": "続行するにはログインしてください。"
+    },
+    "register": {
+        "title": "新規登録",
+        "email": "メールアドレス",
+        "placeholder": "メールアドレス",
+        "submit": "登録する",
+        "sending": "送信中…",
+        "sent": "メールを確認してください。登録を完了するためのリンクを送信しました。"
     }
 }

@@ -25,7 +25,8 @@
   font-size: var(--primary-font);
 }
 
-.input-field--invalid {
+.input-field--invalid,
+.input-field[aria-invalid="true"] {
   background-color: var(--sg-danger-soft);
   border-color: var(--sg-danger);
 }

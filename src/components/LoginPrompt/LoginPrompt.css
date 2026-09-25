@@ -1,0 +1,27 @@
+@import '../themes.css';
+
+.sg-login-prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 48px 16px;
+  color: var(--sg-text-muted);
+  font-family: var(--font-family);
+  text-align: center;
+}
+
+.sg-login-prompt-message {
+  margin: 0;
+  max-width: 420px;
+  font-size: var(--primary-font);
+  line-height: 1.5;
+}
+
+.sg-login-prompt-footer {
+  font-size: 13px;
+}
+
+.sg-login-prompt-footer a {
+  color: var(--sg-link);
+}
