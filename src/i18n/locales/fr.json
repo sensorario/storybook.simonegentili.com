@@ -1,0 +1,37 @@
+{
+    "auth": {
+        "login": "Se connecter",
+        "logout": "Se déconnecter",
+        "username": "Nom d’utilisateur",
+        "password": "Mot de passe"
+    },
+    "modal": {
+        "close": "Fermer"
+    },
+    "accessGate": {
+        "title": "Vous n’avez pas accès à {{app}}",
+        "pending": "Votre demande est en attente d’approbation.",
+        "rejected": "Votre demande d’accès a été refusée. Vous pouvez en envoyer une nouvelle.",
+        "none": "Pour utiliser cette application, vous devez demander l’accès à un administrateur.",
+        "failed": "Échec de l’envoi, veuillez réessayer.",
+        "sending": "Envoi…",
+        "request": "Demander l’accès"
+    },
+    "launcher": {
+        "label": "Applications",
+        "loading": "Chargement…",
+        "loadFailed": "Impossible de charger les applications.",
+        "locked": "accès sur demande"
+    },
+    "setPassword": {
+        "title": "Définir un nouveau mot de passe",
+        "newPassword": "Nouveau mot de passe",
+        "confirmPassword": "Confirmer le mot de passe",
+        "submit": "Enregistrer le mot de passe",
+        "errorEmpty": "Saisissez et confirmez le nouveau mot de passe.",
+        "errorMismatch": "Les mots de passe ne correspondent pas."
+    },
+    "languageSwitcher": {
+        "label": "Langue"
+    }
+}

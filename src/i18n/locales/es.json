@@ -1,0 +1,37 @@
+{
+    "auth": {
+        "login": "Iniciar sesión",
+        "logout": "Cerrar sesión",
+        "username": "Usuario",
+        "password": "Contraseña"
+    },
+    "modal": {
+        "close": "Cerrar"
+    },
+    "accessGate": {
+        "title": "No tienes acceso a {{app}}",
+        "pending": "Tu solicitud está pendiente de aprobación.",
+        "rejected": "Tu solicitud de acceso ha sido rechazada. Puedes enviar una nueva.",
+        "none": "Para usar esta aplicación debes pedir acceso a un administrador.",
+        "failed": "No se pudo enviar, inténtalo de nuevo.",
+        "sending": "Enviando…",
+        "request": "Solicitar acceso"
+    },
+    "launcher": {
+        "label": "Aplicaciones",
+        "loading": "Cargando…",
+        "loadFailed": "No se pudieron cargar las aplicaciones.",
+        "locked": "acceso bajo solicitud"
+    },
+    "setPassword": {
+        "title": "Establecer una nueva contraseña",
+        "newPassword": "Nueva contraseña",
+        "confirmPassword": "Confirmar contraseña",
+        "submit": "Guardar contraseña",
+        "errorEmpty": "Introduce y confirma la nueva contraseña.",
+        "errorMismatch": "Las contraseñas no coinciden."
+    },
+    "languageSwitcher": {
+        "label": "Idioma"
+    }
+}

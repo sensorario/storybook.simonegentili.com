@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { sgI18n } from '../../i18n';
 import Modal from '../Modal/Modal';
 import PasswordInput from '../PasswordInput/PasswordInput';
 import Button from '../Button/Button';
@@ -11,6 +13,7 @@ interface SetPasswordModalProps {
 }
 
 export const SetPasswordModal: React.FC<SetPasswordModalProps> = ({ open, onClose, onSubmit }) => {
+    const { t } = useTranslation('sg', { i18n: sgI18n });
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
@@ -19,12 +22,12 @@ export const SetPasswordModal: React.FC<SetPasswordModalProps> = ({ open, onClos
         e.preventDefault();
 
         if (newPassword === '' || confirmPassword === '') {
-            setError('Inserisci ed conferma la nuova password.');
+            setError(t('setPassword.errorEmpty'));
             return;
         }
 
         if (newPassword !== confirmPassword) {
-            setError('Le password non coincidono.');
+            setError(t('setPassword.errorMismatch'));
             return;
         }
 
@@ -33,12 +36,12 @@ export const SetPasswordModal: React.FC<SetPasswordModalProps> = ({ open, onClos
     };
 
     return (
-        <Modal open={open} onClose={onClose} title="Imposta una nuova password">
+        <Modal open={open} onClose={onClose} title={t('setPassword.title')}>
             <form className="set-password-modal-form" onSubmit={handleSubmit}>
-                <PasswordInput label="Nuova password" value={newPassword} onChange={e => setNewPassword(e.target.value)} autoFocus />
-                <PasswordInput label="Conferma password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} />
+                <PasswordInput label={t('setPassword.newPassword')} value={newPassword} onChange={e => setNewPassword(e.target.value)} autoFocus />
+                <PasswordInput label={t('setPassword.confirmPassword')} value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} />
                 {error && <p className="set-password-modal-error">{error}</p>}
-                <Button label="Salva password" type="submit" style={{ width: '100%' }} />
+                <Button label={t('setPassword.submit')} type="submit" style={{ width: '100%' }} />
             </form>
         </Modal>
     );

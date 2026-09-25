@@ -38,6 +38,7 @@
   border: 1px solid var(--primary-border);
   border-radius: calc(var(--radius) * 3);
   background: var(--modal-bg);
+  color: var(--sg-text);
   box-shadow: var(--shadow-2);
 }
 
@@ -78,7 +79,7 @@
   height: 40px;
   border-radius: var(--radius);
   background: var(--accent);
-  color: #fff;
+  color: var(--sg-on-accent);
   font-size: 18px;
   font-weight: 600;
 }

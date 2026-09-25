@@ -1,0 +1,12 @@
+@import '../themes.css';
+
+.sg-language-switcher {
+  padding: 4px 8px;
+  border: 1px solid var(--input-border);
+  border-radius: var(--input-radius);
+  background: var(--input-bg);
+  color: var(--sg-text);
+  font-family: var(--font-family);
+  font-size: var(--primary-font);
+  cursor: pointer;
+}

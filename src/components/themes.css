@@ -1,76 +1,127 @@
+/* Three levels:
+   1. primitives (--sg-color-*): the raw palette, never used by components;
+   2. semantic (--sg-bg, --sg-surface, --sg-text, ...): what a theme changes -
+      dark mode below only redefines these;
+   3. per-component (--modal-bg, --button-bg, --accent, ...): the names apps
+      already override, now defaulting to a semantic token.
+   Level 3 is resolved on :root, so data-theme must sit on <html>
+   (document.documentElement), not on <body>: a variable referencing another
+   one inherits its already-computed value. */
 :root {
+  --sg-color-white: #fff;
+  --sg-color-black: #000;
+  --sg-color-gray-50: #f5f5f5;
+  --sg-color-gray-100: #e1e5e9;
+  --sg-color-gray-150: #e0e0e0;
+  --sg-color-gray-200: #e6e6e6;
+  --sg-color-gray-300: #ccc;
+  --sg-color-gray-350: #bdbdbd;
+  --sg-color-gray-400: #9aa3b5;
+  --sg-color-gray-500: #647089;
+  --sg-color-gray-600: #555;
+  --sg-color-gray-650: #444;
+  --sg-color-gray-700: #333;
+  --sg-color-gray-750: #2a2a2a;
+  --sg-color-gray-800: #222;
+  --sg-color-gray-900: #1a1a1a;
+  --sg-color-blue-50: #e2e7f8;
+  --sg-color-blue-300: #86aefc;
+  --sg-color-blue-400: #6f9cf7;
+  --sg-color-blue-500: #5480e6;
+  --sg-color-blue-600: #3d5fc4;
+  --sg-color-blue-700: #2e4aa0;
+  --sg-color-sky-500: #1ea7fd;
+  --sg-color-red-50: #ffe5e5;
+  --sg-color-red-400: #e57373;
+  --sg-color-red-600: #c0392b;
+
+  --sg-bg: var(--sg-color-white);
+  --sg-surface: var(--sg-color-white);
+  --sg-surface-muted: var(--sg-color-gray-50);
+  --sg-surface-hover: var(--sg-color-gray-150);
+  --sg-border: var(--sg-color-gray-300);
+  --sg-border-subtle: var(--sg-color-gray-100);
+  --sg-text: var(--sg-color-gray-700);
+  --sg-text-heading: var(--sg-color-gray-800);
+  --sg-text-secondary: var(--sg-color-gray-600);
+  --sg-text-muted: var(--sg-color-gray-500);
+  --sg-accent: var(--sg-color-blue-600);
+  --sg-accent-strong: var(--sg-color-blue-700);
+  --sg-accent-soft: var(--sg-color-blue-50);
+  --sg-on-accent: var(--sg-color-white);
+  --sg-action: var(--sg-color-blue-400);
+  --sg-action-hover: var(--sg-color-blue-500);
+  --sg-link: var(--sg-color-sky-500);
+  --sg-danger: var(--sg-color-red-600);
+  --sg-danger-soft: var(--sg-color-red-50);
+  --sg-overlay: rgba(0, 0, 0, 0.3);
+  --sg-shadow-1: 0 1px 2px rgba(15, 23, 42, 0.08), 0 1px 3px rgba(15, 23, 42, 0.06);
+  --sg-shadow-2: 0 4px 12px rgba(15, 23, 42, 0.12);
+  --sg-shadow-3: 0 2px 16px rgba(0, 0, 0, 0.15);
+  --sg-action-shadow: 0 1px 2px rgba(84, 128, 230, 0.12), 0 1px 3px rgba(84, 128, 230, 0.1);
+
   --unit: 3px;
-  --primary-bg: #f5f5f5;
-  --primary-border: #ccc;
   --radius: calc(var(--unit)  * 2);
-  --primary-radius: var(--radius);
-  --primary-font: var(--font-size);
-  --primary-hover-bg: #e0e0e0;
-  --modal-bg: #fff;
-  --modal-overlay: rgba(0,0,0,0.3);
-  --modal-title-color: #222;
-  --input-bg: #fff;
-  --input-border: #ccc;
-  --input-radius: var(--radius);
-  --input-font: 1rem;
   --font-size: 14px;
   --font-family: Arial, sans-serif;
   --font-size-h1: calc(var(--font-size) * 1.5);
 
+  --primary-bg: var(--sg-surface-muted);
+  --primary-border: var(--sg-border);
+  --primary-radius: var(--radius);
+  --primary-font: var(--font-size);
+  --primary-hover-bg: var(--sg-surface-hover);
+  --modal-bg: var(--sg-surface);
+  --modal-overlay: var(--sg-overlay);
+  --modal-title-color: var(--sg-text-heading);
+  --input-bg: var(--sg-surface);
+  --input-border: var(--sg-border);
+  --input-radius: var(--radius);
+  --input-font: 1rem;
+
   /* Button: solid pill, distinct from the neutral --primary-* surface
      tokens above (those are shared with Footer/Modal and must stay neutral). */
-  --button-bg: #6f9cf7;
-  --button-bg-hover: #5480e6;
-  --button-color: #fff;
+  --button-bg: var(--sg-action);
+  --button-bg-hover: var(--sg-action-hover);
+  --button-color: var(--sg-on-accent);
   --button-radius: 999px;
-  --button-shadow: 0 1px 2px rgba(84, 128, 230, 0.12), 0 1px 3px rgba(84, 128, 230, 0.1);
+  --button-shadow: var(--sg-action-shadow);
   --button-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
   --button-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* Accent + muted-text + elevation tokens, added for ColorPicker/
-     FontPicker/Toggle (the first shared components that need an "active/
-     selected" state and a floating popover, not just the flat --primary-*
-     surface or the solid --button-* pill). Values carried over as-is from
-     eddiethor.simonegentili.com's own theme (--color-primary/-soft,
-     --color-ink-muted, --shadow-1/-2 in its App.css) rather than invented
-     fresh, since that's the one already-shipped look these three
-     components are being extracted from. Generic names (not "cover-*" or
-     eddiethor-specific) so any consuming app can adopt them.
-     --accent deliberately doesn't reuse --button-bg: a Toggle's "on" track
-     or a picker option's "selected" highlight sits right next to solid
-     Button pills in real layouts, and needs its own less saturated blue to
-     read as a state indicator rather than a second call-to-action. */
-  --accent: #3d5fc4;
-  --accent-strong: #2e4aa0;
-  --accent-soft: #e2e7f8;
-  --ink-muted: #647089;
-  --shadow-1: 0 1px 2px rgba(15, 23, 42, 0.08), 0 1px 3px rgba(15, 23, 42, 0.06);
-  --shadow-2: 0 4px 12px rgba(15, 23, 42, 0.12);
+  /* --accent deliberately isn't --button-bg: a Toggle's "on" track or a
+     picker's "selected" highlight sits right next to solid Button pills and
+     needs a less saturated blue to read as a state, not a second action. */
+  --accent: var(--sg-accent);
+  --accent-strong: var(--sg-accent-strong);
+  --accent-soft: var(--sg-accent-soft);
+  --ink-muted: var(--sg-text-muted);
+  --shadow-1: var(--sg-shadow-1);
+  --shadow-2: var(--sg-shadow-2);
 }
 
-.theme-dark {
-  --primary-bg: #222;
-  --primary-border: #444;
-  --primary-font: 1rem;
-  --font-family: 'Inter', Arial, sans-serif;
-  --primary-hover-bg: #333;
-  --modal-bg: #222;
-  --modal-title-color: #fff;
-  --input-bg: #333;
-  --input-border: #555;
-  --input-font: 1rem;
-
-  --button-bg: #6f9cf7;
-  --button-bg-hover: #86aefc;
-  --button-color: #fff;
-
-  /* --accent kept the same blue as light mode (same convention --button-bg
-     already uses above) - only the soft/shadow variants, which exist to
-     sit against a surface color, actually need to change with it. */
-  --accent: #6f9cf7;
-  --accent-strong: #86aefc;
-  --accent-soft: rgba(111, 156, 247, 0.18);
-  --ink-muted: #9aa3b5;
-  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.24);
-  --shadow-2: 0 4px 12px rgba(0, 0, 0, 0.4);
+:root[data-theme="dark"] {
+  --sg-bg: var(--sg-color-gray-900);
+  --sg-surface: var(--sg-color-gray-800);
+  --sg-surface-muted: var(--sg-color-gray-750);
+  --sg-surface-hover: var(--sg-color-gray-700);
+  --sg-border: var(--sg-color-gray-600);
+  --sg-border-subtle: var(--sg-color-gray-650);
+  --sg-text: var(--sg-color-gray-200);
+  --sg-text-heading: var(--sg-color-white);
+  --sg-text-secondary: var(--sg-color-gray-350);
+  --sg-text-muted: var(--sg-color-gray-400);
+  /* Same blue as light mode (like --sg-action): only the variants that sit
+     against a surface need to change with it. */
+  --sg-accent: var(--sg-color-blue-400);
+  --sg-accent-strong: var(--sg-color-blue-300);
+  --sg-accent-soft: rgba(111, 156, 247, 0.18);
+  --sg-action-hover: var(--sg-color-blue-300);
+  --sg-link: var(--sg-color-blue-300);
+  --sg-danger: var(--sg-color-red-400);
+  --sg-danger-soft: rgba(229, 115, 115, 0.15);
+  --sg-overlay: rgba(0, 0, 0, 0.6);
+  --sg-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.24);
+  --sg-shadow-2: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --sg-shadow-3: 0 2px 16px rgba(0, 0, 0, 0.5);
 }

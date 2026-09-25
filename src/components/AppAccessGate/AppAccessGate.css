@@ -21,6 +21,7 @@
   border-radius: calc(var(--radius) * 3);
   background: var(--modal-bg);
   box-shadow: var(--shadow-2);
+  color: var(--sg-text);
   text-align: center;
 }
 
@@ -36,5 +37,5 @@
 }
 
 .sg-access-gate-card .sg-access-gate-error {
-  color: #c0392b;
+  color: var(--sg-danger);
 }

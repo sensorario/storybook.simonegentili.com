@@ -11,7 +11,7 @@
   border-top: 1px solid var(--primary-border);
   font-family: var(--font-family);
   font-size: 14px;
-  color: #555;
+  color: var(--sg-text-secondary);
   position: fixed;
   width: 100%;
   bottom: 0;
@@ -26,7 +26,7 @@
 }
 
 .cookie-consent a {
-  color: #1ea7fd;
+  color: var(--sg-link);
   text-decoration: none;
 }
 

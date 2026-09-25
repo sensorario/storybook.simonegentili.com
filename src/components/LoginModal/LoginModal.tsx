@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { sgI18n } from '../../i18n';
 import Modal from '../Modal/Modal';
 import Input from '../Input/Input';
 import PasswordInput from '../PasswordInput/PasswordInput';
@@ -12,6 +14,7 @@ interface LoginModalProps {
 }
 
 const LoginModal: React.FC<LoginModalProps> = ({ open, onClose, onLogin }) => {
+    const { t } = useTranslation('sg', { i18n: sgI18n });
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -21,11 +24,11 @@ const LoginModal: React.FC<LoginModalProps> = ({ open, onClose, onLogin }) => {
     };
 
     return (
-        <Modal open={open} onClose={onClose} title="Login">
+        <Modal open={open} onClose={onClose} title={t('auth.login')}>
             <form onSubmit={handleSubmit}>
-                <Input label="Username" value={username} onChange={e => setUsername(e.target.value)} autoFocus />
-                <PasswordInput label="Password" value={password} onChange={e => setPassword(e.target.value)} />
-                <Button label="Login" type="submit" style={{ width: '100%' }} />
+                <Input label={t('auth.username')} value={username} onChange={e => setUsername(e.target.value)} autoFocus />
+                <PasswordInput label={t('auth.password')} value={password} onChange={e => setPassword(e.target.value)} />
+                <Button label={t('auth.login')} type="submit" style={{ width: '100%' }} />
             </form>
         </Modal>
     );

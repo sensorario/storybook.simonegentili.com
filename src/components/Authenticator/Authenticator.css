@@ -7,7 +7,7 @@
   border: 1px solid var(--primary-border);
   border-radius: var(--radius);
   background: var(--primary-bg);
-  color: #333;
+  color: var(--sg-text);
   cursor: pointer;
   transition: background 0.15s ease, border-color 0.15s ease;
 }

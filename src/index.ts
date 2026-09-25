@@ -17,3 +17,6 @@ export * from './components/FontPicker/FontPicker';
 export * from './components/Toggle/Toggle';
 export * from './components/AppLauncher/AppLauncher';
 export * from './components/AppAccessGate/AppAccessGate';
+export * from './components/LanguageSwitcher/LanguageSwitcher';
+export { createI18n, sgI18n, SUPPORTED_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_COOKIE, readLanguageCookie } from './i18n';
+export type { SupportedLanguage } from './i18n';

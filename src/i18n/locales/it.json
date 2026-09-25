@@ -1,0 +1,37 @@
+{
+    "auth": {
+        "login": "Accedi",
+        "logout": "Esci",
+        "username": "Username",
+        "password": "Password"
+    },
+    "modal": {
+        "close": "Chiudi"
+    },
+    "accessGate": {
+        "title": "Non hai accesso a {{app}}",
+        "pending": "La tua richiesta è in attesa di approvazione.",
+        "rejected": "La tua richiesta di accesso è stata rifiutata. Puoi inviarne una nuova.",
+        "none": "Per usare questa app devi chiedere l’accesso a un amministratore.",
+        "failed": "Invio non riuscito, riprova.",
+        "sending": "Invio…",
+        "request": "Richiedi accesso"
+    },
+    "launcher": {
+        "label": "App",
+        "loading": "Caricamento…",
+        "loadFailed": "Impossibile caricare le app.",
+        "locked": "accesso su richiesta"
+    },
+    "setPassword": {
+        "title": "Imposta una nuova password",
+        "newPassword": "Nuova password",
+        "confirmPassword": "Conferma password",
+        "submit": "Salva password",
+        "errorEmpty": "Inserisci e conferma la nuova password.",
+        "errorMismatch": "Le password non coincidono."
+    },
+    "languageSwitcher": {
+        "label": "Lingua"
+    }
+}

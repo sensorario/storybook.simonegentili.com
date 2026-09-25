@@ -18,11 +18,14 @@
   border-radius: var(--radius);
   border-width: 1px;
   border-style: solid;
+  border-color: var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--sg-text);
   padding: 8px;
   font-size: var(--primary-font);
 }
 
 .input-field--invalid {
-  background-color: #ffe5e5;
-  border-color: #cc0000;
+  background-color: var(--sg-danger-soft);
+  border-color: var(--sg-danger);
 }

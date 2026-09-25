@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from '../Button/Button';
+import { sgI18n } from '../../i18n';
 import './Modal.css';
 
 export type ModalButton = {
@@ -15,8 +17,7 @@ interface ModalProps {
     children: React.ReactNode;
     buttons?: ModalButton[];
     footer?: React.ReactNode;
-    // Accessible name for the dismiss button - this library has no i18n
-    // dependency of its own, so consumers pass their own translated string.
+    /** Accessible name of the dismiss button. Default: the translated "Close". */
     closeLabel?: string;
     // Extra class appended to .modal-content, so a consumer can override
     // sizing (width/max-height) for one specific modal instance via its own
@@ -36,9 +37,10 @@ export const Modal: React.FC<ModalProps> = ({
     children,
     buttons,
     footer,
-    closeLabel = 'Close',
+    closeLabel,
     className,
 }) => {
+    const { t } = useTranslation('sg', { i18n: sgI18n });
     const [closing, setClosing] = useState(false);
     // Position is an offset from the centered layout .modal-overlay already
     // gives .modal-content via flexbox, not an absolute coordinate - so a
@@ -151,7 +153,7 @@ export const Modal: React.FC<ModalProps> = ({
                     <button
                         type="button"
                         className="modal-close"
-                        aria-label={closeLabel}
+                        aria-label={closeLabel ?? t('modal.close')}
                         onClick={() => closeWith(onClose)}
                         disabled={closing}
                     >

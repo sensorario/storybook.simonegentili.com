@@ -36,7 +36,8 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+  color: var(--sg-text);
+  box-shadow: var(--sg-shadow-3);
   transform: translate(var(--drag-x), var(--drag-y));
   animation: sg-modal-slide-in 0.3s ease-out;
 }

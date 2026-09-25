@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { sgI18n } from '../../i18n';
 import { Button } from '../Button/Button';
 import './AppAccessGate.css';
 
@@ -37,6 +39,7 @@ const currentApp = (apps: AccessApp[]): AccessApp | null => {
 // API already refuses its protected routes (403, code 5006); this only keeps
 // the UI from pretending otherwise, and lets the user ask for access.
 export const AppAccessGate = ({ token, heimdallUrl = DEFAULT_HEIMDALL_URL }: AppAccessGateProps) => {
+    const { t } = useTranslation('sg', { i18n: sgI18n });
     const [checked, setChecked] = useState<{ token: string; app: AccessApp | null } | null>(null);
     const [sending, setSending] = useState(false);
     const [failed, setFailed] = useState(false);
@@ -77,19 +80,17 @@ export const AppAccessGate = ({ token, heimdallUrl = DEFAULT_HEIMDALL_URL }: App
     return (
         <div className="sg-access-gate" role="dialog" aria-modal="true" aria-labelledby="sg-access-gate-title">
             <div className="sg-access-gate-card">
-                <h2 id="sg-access-gate-title">Non hai accesso a {app.name}</h2>
+                <h2 id="sg-access-gate-title">{t('accessGate.title', { app: app.name })}</h2>
                 {app.access === 'pending' ? (
-                    <p>La tua richiesta è in attesa di approvazione.</p>
+                    <p>{t('accessGate.pending')}</p>
                 ) : (
                     <>
                         <p>
-                            {app.access === 'rejected'
-                                ? 'La tua richiesta di accesso è stata rifiutata. Puoi inviarne una nuova.'
-                                : 'Per usare questa app devi chiedere l’accesso a un amministratore.'}
+                            {app.access === 'rejected' ? t('accessGate.rejected') : t('accessGate.none')}
                         </p>
-                        {failed && <p className="sg-access-gate-error">Invio non riuscito, riprova.</p>}
+                        {failed && <p className="sg-access-gate-error">{t('accessGate.failed')}</p>}
                         <Button
-                            label={sending ? 'Invio…' : 'Richiedi accesso'}
+                            label={sending ? t('accessGate.sending') : t('accessGate.request')}
                             disabled={sending}
                             onClick={requestAccess}
                         />

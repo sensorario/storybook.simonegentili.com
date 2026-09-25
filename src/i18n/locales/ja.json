@@ -1,0 +1,37 @@
+{
+    "auth": {
+        "login": "ログイン",
+        "logout": "ログアウト",
+        "username": "ユーザー名",
+        "password": "パスワード"
+    },
+    "modal": {
+        "close": "閉じる"
+    },
+    "accessGate": {
+        "title": "{{app}} へのアクセス権がありません",
+        "pending": "リクエストは承認待ちです。",
+        "rejected": "アクセスリクエストは却下されました。新しいリクエストを送信できます。",
+        "none": "このアプリを使うには、管理者にアクセスを申請してください。",
+        "failed": "送信に失敗しました。もう一度お試しください。",
+        "sending": "送信中…",
+        "request": "アクセスを申請"
+    },
+    "launcher": {
+        "label": "アプリ",
+        "loading": "読み込み中…",
+        "loadFailed": "アプリを読み込めませんでした。",
+        "locked": "申請によりアクセス可能"
+    },
+    "setPassword": {
+        "title": "新しいパスワードを設定",
+        "newPassword": "新しいパスワード",
+        "confirmPassword": "パスワードの確認",
+        "submit": "パスワードを保存",
+        "errorEmpty": "新しいパスワードを入力して確認してください。",
+        "errorMismatch": "パスワードが一致しません。"
+    },
+    "languageSwitcher": {
+        "label": "言語"
+    }
+}

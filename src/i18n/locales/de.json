@@ -1,0 +1,37 @@
+{
+    "auth": {
+        "login": "Anmelden",
+        "logout": "Abmelden",
+        "username": "Benutzername",
+        "password": "Passwort"
+    },
+    "modal": {
+        "close": "Schließen"
+    },
+    "accessGate": {
+        "title": "Du hast keinen Zugriff auf {{app}}",
+        "pending": "Deine Anfrage wartet auf Freigabe.",
+        "rejected": "Deine Zugriffsanfrage wurde abgelehnt. Du kannst eine neue senden.",
+        "none": "Um diese App zu nutzen, musst du einen Administrator um Zugriff bitten.",
+        "failed": "Senden fehlgeschlagen, bitte versuche es erneut.",
+        "sending": "Wird gesendet…",
+        "request": "Zugriff anfragen"
+    },
+    "launcher": {
+        "label": "Apps",
+        "loading": "Wird geladen…",
+        "loadFailed": "Die Apps konnten nicht geladen werden.",
+        "locked": "Zugriff auf Anfrage"
+    },
+    "setPassword": {
+        "title": "Neues Passwort festlegen",
+        "newPassword": "Neues Passwort",
+        "confirmPassword": "Passwort bestätigen",
+        "submit": "Passwort speichern",
+        "errorEmpty": "Gib das neue Passwort ein und bestätige es.",
+        "errorMismatch": "Die Passwörter stimmen nicht überein."
+    },
+    "languageSwitcher": {
+        "label": "Sprache"
+    }
+}

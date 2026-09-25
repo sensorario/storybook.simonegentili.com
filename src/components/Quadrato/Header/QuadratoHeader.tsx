@@ -1,12 +1,15 @@
 import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
 import { Header } from '../../Header/Header';
-import { AppAccessGate } from '../../AppAccessGate/AppAccessGate';
+import { AppAccessGate, DEFAULT_HEIMDALL_URL } from '../../AppAccessGate/AppAccessGate';
 import { AppLauncher } from '../../AppLauncher/AppLauncher';
 import Authenticator from '../../Authenticator/Authenticator';
 import LoginModal from '../../LoginModal/LoginModal';
 import './QuadratoHeader.css';
 
 const DEFAULT_COOKIE_NAME = 'simonegentili.com-access-token';
+
+/** Dispatch on `window` with the new avatar (data URL or null) as `detail` after changing it, so the header updates without a reload. */
+export const AVATAR_CHANGE_EVENT = 'sg-avatar-change';
 
 const hasCookie = (name: string): boolean =>
   document.cookie
@@ -65,7 +68,7 @@ export const QuadratoHeader = forwardRef<QuadratoHeaderHandle, QuadratoHeaderPro
   onLogout,
   onUserAuthenticated,
   appsUrl,
-  heimdallUrl,
+  heimdallUrl = DEFAULT_HEIMDALL_URL,
 }, ref) => {
   const [isAuthenticated, setIsAuthenticated] = useState(() => hasCookie(cookieName));
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -76,6 +79,27 @@ export const QuadratoHeader = forwardRef<QuadratoHeaderHandle, QuadratoHeaderPro
 
   const token = isAuthenticated ? getCookieValue(cookieName) : null;
   const effectiveUsername = username ?? (token ? decodeJwtField(token, usernameJwtField) : null);
+
+  // keyed by token, so a stale avatar never shows after logout or a user switch
+  const [avatar, setAvatar] = useState<{ token: string; src: string | null } | null>(null);
+  const avatarSrc = token && avatar?.token === token ? avatar.src : null;
+
+  useEffect(() => {
+    if (!token) return;
+    let cancelled = false;
+    fetch(`${heimdallUrl}/me/avatar`, { headers: { Authorization: `Bearer ${token}` } })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => { if (!cancelled) setAvatar({ token, src: data?.avatar ?? null }); })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, [token, heimdallUrl]);
+
+  useEffect(() => {
+    if (!token) return;
+    const onChange = (e: Event) => setAvatar({ token, src: (e as CustomEvent<string | null>).detail });
+    window.addEventListener(AVATAR_CHANGE_EVENT, onChange);
+    return () => window.removeEventListener(AVATAR_CHANGE_EVENT, onChange);
+  }, [token]);
 
   useEffect(() => {
     onUserAuthenticated?.(isAuthenticated, isAuthenticated ? effectiveUsername : null);
@@ -103,6 +127,9 @@ export const QuadratoHeader = forwardRef<QuadratoHeaderHandle, QuadratoHeaderPro
       <Header onNavigate={onNavigate} title={title} homePageKey={homePageKey} className="quadrato-header">
         <AppLauncher appsUrl={appsUrl} token={token} />
         <div className="quadrato-header-auth">
+          {isAuthenticated && avatarSrc && (
+            <img className="quadrato-header-avatar" src={avatarSrc} alt="" />
+          )}
           {isAuthenticated && effectiveUsername && (
             <span className="quadrato-header-username">{effectiveUsername}</span>
           )}

@@ -9,9 +9,10 @@
 
 .header {
   width: 100%;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e1e5e9;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--sg-surface);
+  color: var(--sg-text);
+  border-bottom: 1px solid var(--sg-border-subtle);
+  box-shadow: var(--sg-shadow-1);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -38,12 +39,12 @@
   cursor: pointer;
   font-size: 24px;
   font-weight: bold;
-  color: #333;
+  color: var(--sg-text);
   transition: color 0.2s ease;
 }
 
 .logo:hover {
-  color: #007acc;
+  color: var(--accent);
 }
 
 .logo-full {
