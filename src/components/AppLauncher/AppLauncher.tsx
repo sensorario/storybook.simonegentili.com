@@ -1,6 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Icon } from '../Icon/Icon';
+import { Logo } from '../Logo/Logo';
+import { isLogoKey } from '../Logo/logos';
 import { sgI18n } from '../../i18n';
 import './AppLauncher.css';
 
@@ -11,6 +13,10 @@ export type LauncherApp = {
     url: string;
     /** Not granted to the logged-in user: opening it shows AppAccessGate's "Richiedi accesso". */
     locked?: boolean;
+    /** Tile background, set from Heimdall's "App" page. */
+    color?: string | null;
+    /** One of LOGOS' keys, drawn instead of the initial. */
+    icon?: string | null;
 };
 
 interface AppLauncherProps {
@@ -97,8 +103,12 @@ export const AppLauncher = ({ appsUrl = DEFAULT_APPS_URL, label, token = null }:
                                             .join(' ')}
                                         title={app.locked ? `${app.name}: ${t('launcher.locked')}` : undefined}
                                     >
-                                        <span className="sg-app-launcher-tile" aria-hidden="true">
-                                            {app.name.charAt(0).toUpperCase()}
+                                        <span
+                                            className="sg-app-launcher-tile"
+                                            aria-hidden="true"
+                                            style={app.color ? ({ '--tile-bg': app.color } as CSSProperties) : undefined}
+                                        >
+                                            {isLogoKey(app.icon) ? <Logo name={app.icon} size={22} /> : app.name.charAt(0).toUpperCase()}
                                             {app.locked && (
                                                 <span className="sg-app-launcher-lock">
                                                     <Icon name="lock" size={12} />

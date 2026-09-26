@@ -4,12 +4,12 @@ import AppLauncher from './AppLauncher';
 const DEMO_APPS = {
     apps: [
         { name: 'simonegentili.com', url: 'https://simonegentili.com' },
-        { name: 'Quadrato', url: 'https://quadrato.simonegentili.com' },
+        { name: 'Quadrato', url: 'https://quadrato.simonegentili.com', color: '#3d5fc4', icon: 'sparkles' },
         { name: 'Tome', url: 'https://tome.simonegentili.com' },
-        { name: 'Gantt', url: 'https://gantt.simonegentili.com' },
-        { name: 'Guitar', url: 'https://guitar.simonegentili.com' },
+        { name: 'Gantt', url: 'https://gantt.simonegentili.com', color: '#f97316' },
+        { name: 'Guitar', url: 'https://guitar.simonegentili.com', color: '#059669', icon: 'joystick' },
         { name: 'Bookcrossing', url: 'https://bookcrossing.simonegentili.com' },
-        { name: 'Hermesmetis', url: 'https://hermesmetis.simonegentili.com', locked: true },
+        { name: 'Hermesmetis', url: 'https://hermesmetis.simonegentili.com', locked: true, color: '#e11d48', icon: 'brain' },
     ],
 };
 

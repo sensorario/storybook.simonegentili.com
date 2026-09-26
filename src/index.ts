@@ -36,3 +36,5 @@ export * from './components/LoginPrompt/LoginPrompt';
 export * from './components/AuthPage/AuthPage';
 export * from './components/RegisterForm/RegisterForm';
 export { ACCESS_TOKEN_COOKIE, getAccessToken, setAccessToken, clearAccessToken, getTokenClaim } from './auth';
+export * from './components/Logo/Logo';
+export * from './components/Logo/logos';
