@@ -17,6 +17,7 @@ export type IconName =
     | 'share-2'
     | 'download'
     | 'book'
+    | 'book-closed'
     | 'printer'
     | 'eye'
     | 'columns'
@@ -101,6 +102,13 @@ const ICON_PATHS: Record<IconName, React.ReactNode> = {
         <>
             <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v18H6.5A2.5 2.5 0 0 1 4 18.5z" />
             <path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H12v18h5.5a2.5 2.5 0 0 0 2.5-2.5z" />
+        </>
+    ),
+    'book-closed': (
+        <>
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z" />
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+            <path d="M10 2v7l2-1.5L14 9V2" />
         </>
     ),
     printer: (

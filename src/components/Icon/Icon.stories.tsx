@@ -28,6 +28,7 @@ const ALL_NAMES: IconName[] = [
     'share-2',
     'download',
     'book',
+    'book-closed',
     'printer',
     'eye',
     'columns',
