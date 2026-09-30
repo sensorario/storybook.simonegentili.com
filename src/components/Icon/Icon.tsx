@@ -5,6 +5,7 @@ import './Icon.css';
 // shared across every app that consumes this library, so a toolbar built
 // from these always looks consistent regardless of which app renders it.
 // Add new names here rather than inlining one-off SVGs in a consuming app.
+// Solid single-path icons (app icons, PDF-safe) live in Logo, not here.
 export type IconName =
     | 'menu'
     | 'layout'

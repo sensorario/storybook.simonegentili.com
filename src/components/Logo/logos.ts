@@ -15,6 +15,9 @@
 // megaphone, code = "code-block", review = "note-pencil", puzzle = "puzzle-piece",
 // shield = "shield-check") come from Phosphor Icons (github.com/phosphor-icons/core,
 // MIT), fill variant, on their own 256x256 viewBox rather than Bootstrap's 16x16.
+// Despite the name, most of these are generic icons, not brand logos: they
+// stay separate from Icon (stroked, multi-element) because they must be one
+// solid path each.
 // tomato is TDesign Icons' "tomato-filled" (github.com/Tencent/tdesign-icons, MIT).
 export type LogoKey =
     | "react"

@@ -5,6 +5,15 @@ import { LOGOS, type LogoKey } from './logos';
 const meta: Meta<typeof Logo> = {
     title: 'Components/Logo',
     component: Logo,
+    tags: ['autodocs'],
+    parameters: {
+        docs: {
+            description: {
+                component:
+                    'Solid single-path icons (plus a few brand logos), recolorable via `color`. Single path so they also survive eddiethor\'s PDF export; used for the app icons in AppLauncher. Despite the name most entries are generic icons: for line icons in toolbars and UI controls use `Icon` instead.',
+            },
+        },
+    },
 };
 
 export default meta;

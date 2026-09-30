@@ -5,6 +5,14 @@ const meta: Meta<typeof Icon> = {
     title: 'Components/Icon',
     component: Icon,
     tags: ['autodocs'],
+    parameters: {
+        docs: {
+            description: {
+                component:
+                    'Line icons (24x24, stroke, multi-element) for toolbars and UI controls. For solid single-path icons (app icons in AppLauncher, eddiethor covers and PDF export) use `Logo` instead.',
+            },
+        },
+    },
 };
 export default meta;
 
