@@ -1,40 +1,53 @@
-export * from './components/Button/Button';
-export * from './components/Icon/Icon';
-export * from './components/Footer/Footer';
-export * from './components/SG/Footer/SGFooter';
-export * from './components/CookieConsent/CookieConsent';
-export * from './components/Header/Header';
-export * from './components/SG/Header/SGHeader';
-export * from './components/Quadrato/Header/QuadratoHeader';
-export * from './components/Authenticator/Authenticator';
-export * from './components/LoginModal/LoginModal';
-export * from './components/SetPasswordModal/SetPasswordModal';
-export * from './components/Modal/Modal';
-export * from './components/Input/Input';
-export * from './components/PasswordInput/PasswordInput';
-export * from './components/ColorPicker/ColorPicker';
-export * from './components/FontPicker/FontPicker';
-export * from './components/Toggle/Toggle';
-export * from './components/AppLauncher/AppLauncher';
-export * from './components/AppAccessGate/AppAccessGate';
-export * from './components/LanguageSwitcher/LanguageSwitcher';
-export { createI18n, sgI18n, SUPPORTED_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_COOKIE, readLanguageCookie } from './i18n';
-export type { SupportedLanguage } from './i18n';
-export * from './components/ProgressBar/ProgressBar';
-export * from './components/StatusMessage/StatusMessage';
-export * from './components/Card/Card';
-export * from './components/Badge/Badge';
-export * from './components/Avatar/Avatar';
-export * from './components/ConfirmModal/ConfirmModal';
-export * from './components/Textarea/Textarea';
-export * from './components/Select/Select';
-export * from './components/FormField/FormField';
-export * from './components/Tabs/Tabs';
-import './components/Table/Table.css';
-export * from './components/VersionNumber/VersionNumber';
-export * from './components/LoginPrompt/LoginPrompt';
-export * from './components/AuthPage/AuthPage';
-export * from './components/RegisterForm/RegisterForm';
-export { ACCESS_TOKEN_COOKIE, getAccessToken, setAccessToken, clearAccessToken, getTokenClaim } from './auth';
-export * from './components/Logo/Logo';
-export * from './components/Logo/logos';
+export * from "./components/Button/Button";
+export * from "./components/Icon/Icon";
+export * from "./components/Footer/Footer";
+export * from "./components/SG/Footer/SGFooter";
+export * from "./components/CookieConsent/CookieConsent";
+export * from "./components/Header/Header";
+export * from "./components/SG/Header/SGHeader";
+export * from "./components/Quadrato/Header/QuadratoHeader";
+export * from "./components/Authenticator/Authenticator";
+export * from "./components/LoginModal/LoginModal";
+export * from "./components/SetPasswordModal/SetPasswordModal";
+export * from "./components/Modal/Modal";
+export * from "./components/Input/Input";
+export * from "./components/PasswordInput/PasswordInput";
+export * from "./components/ColorPicker/ColorPicker";
+export * from "./components/FontPicker/FontPicker";
+export * from "./components/Toggle/Toggle";
+export * from "./components/AppLauncher/AppLauncher";
+export * from "./components/AppAccessGate/AppAccessGate";
+export * from "./components/LanguageSwitcher/LanguageSwitcher";
+export {
+    createI18n,
+    sgI18n,
+    SUPPORTED_LANGUAGES,
+    LANGUAGE_NAMES,
+    LANGUAGE_COOKIE,
+    readLanguageCookie,
+} from "./i18n";
+export type { SupportedLanguage } from "./i18n";
+export * from "./components/ProgressBar/ProgressBar";
+export * from "./components/StatusMessage/StatusMessage";
+export * from "./components/Card/Card";
+export * from "./components/Badge/Badge";
+export * from "./components/Avatar/Avatar";
+export * from "./components/ConfirmModal/ConfirmModal";
+export * from "./components/Textarea/Textarea";
+export * from "./components/Select/Select";
+export * from "./components/FormField/FormField";
+export * from "./components/Tabs/Tabs";
+import "./components/Table/Table.css";
+export * from "./components/VersionNumber/VersionNumber";
+export * from "./components/LoginPrompt/LoginPrompt";
+export * from "./components/AuthPage/AuthPage";
+export * from "./components/RegisterForm/RegisterForm";
+export {
+    ACCESS_TOKEN_COOKIE,
+    getAccessToken,
+    setAccessToken,
+    clearAccessToken,
+    getTokenClaim,
+} from "./auth";
+export * from "./components/Logo/Logo";
+export * from "./components/Logo/logos";
