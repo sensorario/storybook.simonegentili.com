@@ -1,5 +1,6 @@
 {
-    "onAfterCommit": "",
-    "onBeforeCommit": "",
-    "pushAfterCommit": true
+  "onBeforeCommit": "",
+  "onAfterCommit": "",
+  "pushAfterCommit": true,
+  "mainBranch": "next"
 }

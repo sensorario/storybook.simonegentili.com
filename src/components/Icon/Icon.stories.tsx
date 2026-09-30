@@ -40,6 +40,9 @@ const ALL_NAMES: IconName[] = [
     'tech-node',
     'tech-go',
     'tech-php',
+    'grid',
+    'lock',
+    'list-check',
 ];
 
 export const AllIcons: Story = {

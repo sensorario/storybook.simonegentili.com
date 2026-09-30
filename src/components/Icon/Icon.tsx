@@ -30,7 +30,8 @@ export type IconName =
     | 'tech-go'
     | 'tech-php'
     | 'grid'
-    | 'lock';
+    | 'lock'
+    | 'list-check';
 
 const ICON_PATHS: Record<IconName, React.ReactNode> = {
     menu: (
@@ -185,6 +186,17 @@ const ICON_PATHS: Record<IconName, React.ReactNode> = {
         <>
             <rect x="5" y="11" width="14" height="10" rx="2" />
             <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+        </>
+    ),
+    // To-do list: a tick in front of each row.
+    'list-check': (
+        <>
+            <polyline points="3 6 4.5 7.5 7 5" />
+            <polyline points="3 12 4.5 13.5 7 11" />
+            <polyline points="3 18 4.5 19.5 7 17" />
+            <line x1="11" y1="6" x2="21" y2="6" />
+            <line x1="11" y1="12" x2="21" y2="12" />
+            <line x1="11" y1="18" x2="21" y2="18" />
         </>
     ),
 };
