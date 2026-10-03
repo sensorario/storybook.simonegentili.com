@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Icon } from '../Icon/Icon';
 import { Logo } from '../Logo/Logo';
@@ -7,6 +7,10 @@ import { sgI18n } from '../../i18n';
 import './AppLauncher.css';
 
 export const DEFAULT_APPS_URL = 'https://api.simonegentili.com/heimdall/launcher';
+
+// Gap between the panel and the window's edges.
+const VIEWPORT_MARGIN = 12;
+const PANEL_WIDTH = 320;
 
 export type LauncherApp = {
     name: string;
@@ -40,6 +44,34 @@ export const AppLauncher = ({ appsUrl = DEFAULT_APPS_URL, label, token = null }:
     const apps = loaded?.token === token ? loaded.apps : null;
     const [failed, setFailed] = useState(false);
     const rootRef = useRef<HTMLDivElement>(null);
+    const toggleRef = useRef<HTMLButtonElement>(null);
+    const [panelStyle, setPanelStyle] = useState<CSSProperties>({});
+
+    // The panel is position: fixed, placed from the button on every open, resize and scroll:
+    // an absolute panel gets clipped by any ancestor that hides overflow (e.g. a short page's
+    // body with overflow-x: hidden), and anchored to the button it can run off a phone screen.
+    // A layout effect, so the panel never paints once in the wrong place.
+    useLayoutEffect(() => {
+        if (!open) return;
+        const place = () => {
+            const button = toggleRef.current?.getBoundingClientRect();
+            if (!button) return;
+            const width = Math.min(PANEL_WIDTH, window.innerWidth - 2 * VIEWPORT_MARGIN);
+            const left = Math.min(
+                Math.max(button.right - width, VIEWPORT_MARGIN),
+                window.innerWidth - VIEWPORT_MARGIN - width
+            );
+            const top = button.bottom + 8;
+            setPanelStyle({ top, left, width, maxHeight: window.innerHeight - top - VIEWPORT_MARGIN });
+        };
+        place();
+        window.addEventListener('resize', place);
+        window.addEventListener('scroll', place, true);
+        return () => {
+            window.removeEventListener('resize', place);
+            window.removeEventListener('scroll', place, true);
+        };
+    }, [open]);
 
     useEffect(() => {
         if (!open || apps !== null) return;
@@ -74,6 +106,7 @@ export const AppLauncher = ({ appsUrl = DEFAULT_APPS_URL, label, token = null }:
         <div className="sg-app-launcher" ref={rootRef}>
             <button
                 type="button"
+                ref={toggleRef}
                 className="sg-app-launcher-toggle"
                 aria-label={buttonLabel}
                 title={buttonLabel}
@@ -83,7 +116,7 @@ export const AppLauncher = ({ appsUrl = DEFAULT_APPS_URL, label, token = null }:
                 <Icon name="grid" size={22} />
             </button>
             {open && (
-                <div className="sg-app-launcher-panel">
+                <div className="sg-app-launcher-panel" style={panelStyle}>
                     {failed ? (
                         <p className="sg-app-launcher-message">{t('launcher.loadFailed')}</p>
                     ) : apps === null ? (

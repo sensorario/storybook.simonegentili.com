@@ -51,6 +51,16 @@ const ALL_NAMES: IconName[] = [
     'grid',
     'lock',
     'list-check',
+    'bug',
+    'credit-card',
+    'sparkle',
+    'settings',
+    'users',
+    'arrow-curved',
+    'plus',
+    'zoom-in',
+    'grip-vertical',
+    'books',
 ];
 
 export const AllIcons: Story = {

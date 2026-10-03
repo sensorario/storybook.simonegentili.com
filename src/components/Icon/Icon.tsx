@@ -32,7 +32,17 @@ export type IconName =
     | 'tech-php'
     | 'grid'
     | 'lock'
-    | 'list-check';
+    | 'list-check'
+    | 'bug'
+    | 'credit-card'
+    | 'sparkle'
+    | 'settings'
+    | 'users'
+    | 'arrow-curved'
+    | 'plus'
+    | 'zoom-in'
+    | 'grip-vertical'
+    | 'books';
 
 const ICON_PATHS: Record<IconName, React.ReactNode> = {
     menu: (
@@ -198,6 +208,98 @@ const ICON_PATHS: Record<IconName, React.ReactNode> = {
             <line x1="11" y1="6" x2="21" y2="6" />
             <line x1="11" y1="12" x2="21" y2="12" />
             <line x1="11" y1="18" x2="21" y2="18" />
+        </>
+    ),
+    bug: (
+        <>
+            <path d="M9 7.5a3 3 0 0 1 6 0" />
+            <rect x="7" y="8" width="10" height="12" rx="5" />
+            <line x1="12" y1="11" x2="12" y2="20" />
+            <line x1="9.5" y1="5" x2="8" y2="3" />
+            <line x1="14.5" y1="5" x2="16" y2="3" />
+            <line x1="3" y1="14" x2="7" y2="14" />
+            <line x1="17" y1="14" x2="21" y2="14" />
+            <line x1="4" y1="9" x2="7.3" y2="10.5" />
+            <line x1="20" y1="9" x2="16.7" y2="10.5" />
+            <line x1="4" y1="19" x2="7.5" y2="17.5" />
+            <line x1="20" y1="19" x2="16.5" y2="17.5" />
+        </>
+    ),
+    'credit-card': (
+        <>
+            <rect x="2" y="5" width="20" height="14" rx="2" />
+            <line x1="2" y1="10" x2="22" y2="10" />
+            <line x1="6" y1="15" x2="10" y2="15" />
+        </>
+    ),
+    sparkle: <path d="M12 3l2.2 6.8L21 12l-6.8 2.2L12 21l-2.2-6.8L3 12l6.8-2.2z" />,
+    settings: (
+        <>
+            <circle cx="12" cy="12" r="3" />
+            <circle cx="12" cy="12" r="6.5" />
+            {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => {
+                const a = (deg * Math.PI) / 180;
+                return (
+                    <line
+                        key={deg}
+                        x1={12 + Math.cos(a) * 6.5}
+                        y1={12 + Math.sin(a) * 6.5}
+                        x2={12 + Math.cos(a) * 9.5}
+                        y2={12 + Math.sin(a) * 9.5}
+                    />
+                );
+            })}
+        </>
+    ),
+    users: (
+        <>
+            <circle cx="9" cy="8" r="3.5" />
+            <path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1" />
+            <path d="M16 4.6a3.5 3.5 0 0 1 0 6.8" />
+            <path d="M18 14.2a5 5 0 0 1 3 4.8v1" />
+        </>
+    ),
+    // Hand-drawn hint arrow, curving from top-right down to the left.
+    'arrow-curved': (
+        <>
+            <path d="M21 5C15 3 11 15 4 13" />
+            <polyline points="8.5 9.5 4 13 7.5 17" />
+        </>
+    ),
+    plus: (
+        <>
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+        </>
+    ),
+    'zoom-in': (
+        <>
+            <circle cx="11" cy="11" r="7" />
+            <line x1="21" y1="21" x2="16" y2="16" />
+            <line x1="11" y1="8" x2="11" y2="14" />
+            <line x1="8" y1="11" x2="14" y2="11" />
+        </>
+    ),
+    // Drag handle: two columns of solid dots.
+    'grip-vertical': (
+        <g fill="currentColor" stroke="none">
+            {[5, 12, 19].flatMap((y) =>
+                [9, 15].map((x) => <circle key={`${x}-${y}`} cx={x} cy={y} r="1.6" />)
+            )}
+        </g>
+    ),
+    // Two books on a shelf, the second one leaning on the first.
+    books: (
+        <>
+            <rect x="3" y="4" width="6.5" height="17" rx="1" />
+            <line x1="3" y1="8" x2="9.5" y2="8" />
+            <line x1="5.5" y1="11" x2="7" y2="11" />
+            <g transform="rotate(-14 13.5 21)">
+                <rect x="13.5" y="6" width="6.5" height="15" rx="1" />
+                <line x1="13.5" y1="10" x2="20" y2="10" />
+                <line x1="16" y1="13" x2="17.5" y2="13" />
+            </g>
+            <line x1="2" y1="21" x2="22" y2="21" />
         </>
     ),
 };
