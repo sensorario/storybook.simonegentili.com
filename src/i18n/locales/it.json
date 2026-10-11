@@ -57,5 +57,11 @@
         "submit": "Registrati",
         "sending": "Invio…",
         "sent": "Controlla la tua email: ti abbiamo inviato un link per completare la registrazione."
+    },
+    "dateNav": {
+        "today": "Oggi",
+        "previousDay": "Giorno precedente",
+        "nextDay": "Giorno successivo",
+        "backToToday": "Torna ad oggi"
     }
 }

@@ -57,5 +57,11 @@
         "submit": "Sign up",
         "sending": "Sending…",
         "sent": "Check your email: we sent you a link to complete your registration."
+    },
+    "dateNav": {
+        "today": "Today",
+        "previousDay": "Previous day",
+        "nextDay": "Next day",
+        "backToToday": "Back to today"
     }
 }

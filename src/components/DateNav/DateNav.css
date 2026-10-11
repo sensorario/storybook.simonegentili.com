@@ -1,0 +1,49 @@
+.sg-date-nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.sg-date-nav-step {
+    padding: 2px 8px;
+    border: 0;
+    border-radius: 6px;
+    background: none;
+    color: var(--sg-text-muted);
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.sg-date-nav-step:hover:not(:disabled) {
+    background: var(--sg-surface-hover);
+    color: var(--sg-text);
+}
+
+.sg-date-nav-step:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+.sg-date-nav-current {
+    padding: 4px 12px;
+    border: 0;
+    border-radius: 8px;
+    background: none;
+    color: var(--sg-accent);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.sg-date-nav-current:hover:not(:disabled) {
+    background: var(--sg-accent-soft);
+}
+
+.sg-date-nav-current--today,
+.sg-date-nav-current--today:hover:not(:disabled) {
+    background: var(--sg-success-soft);
+    color: var(--sg-success);
+    cursor: default;
+}

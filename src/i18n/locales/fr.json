@@ -57,5 +57,11 @@
         "submit": "S’inscrire",
         "sending": "Envoi…",
         "sent": "Consultez votre e-mail : nous vous avons envoyé un lien pour terminer l’inscription."
+    },
+    "dateNav": {
+        "today": "Aujourd’hui",
+        "previousDay": "Jour précédent",
+        "nextDay": "Jour suivant",
+        "backToToday": "Revenir à aujourd’hui"
     }
 }

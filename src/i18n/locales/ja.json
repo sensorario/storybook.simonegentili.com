@@ -57,5 +57,11 @@
         "submit": "登録する",
         "sending": "送信中…",
         "sent": "メールを確認してください。登録を完了するためのリンクを送信しました。"
+    },
+    "dateNav": {
+        "today": "今日",
+        "previousDay": "前日",
+        "nextDay": "翌日",
+        "backToToday": "今日に戻る"
     }
 }

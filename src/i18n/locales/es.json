@@ -57,5 +57,11 @@
         "submit": "Registrarse",
         "sending": "Enviando…",
         "sent": "Revisa tu correo: te hemos enviado un enlace para completar el registro."
+    },
+    "dateNav": {
+        "today": "Hoy",
+        "previousDay": "Día anterior",
+        "nextDay": "Día siguiente",
+        "backToToday": "Volver a hoy"
     }
 }
