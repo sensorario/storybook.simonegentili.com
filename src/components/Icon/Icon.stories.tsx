@@ -61,6 +61,9 @@ const ALL_NAMES: IconName[] = [
     'zoom-in',
     'grip-vertical',
     'books',
+    'zap',
+    'wrench',
+    'file-text',
 ];
 
 export const AllIcons: Story = {

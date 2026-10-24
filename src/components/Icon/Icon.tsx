@@ -42,7 +42,10 @@ export type IconName =
     | 'plus'
     | 'zoom-in'
     | 'grip-vertical'
-    | 'books';
+    | 'books'
+    | 'zap'
+    | 'wrench'
+    | 'file-text';
 
 const ICON_PATHS: Record<IconName, React.ReactNode> = {
     menu: (
@@ -300,6 +303,22 @@ const ICON_PATHS: Record<IconName, React.ReactNode> = {
                 <line x1="16" y1="13" x2="17.5" y2="13" />
             </g>
             <line x1="2" y1="21" x2="22" y2="21" />
+        </>
+    ),
+    zap: <path d="M14 3 5 13.5h6L10 21l9-10.5h-6z" />,
+    // Open-end wrench drawn upright, then turned so the head points top-right.
+    wrench: (
+        <g transform="rotate(45 12 12)">
+            <path d="M10.6 2.75V5H13.4V2.75H15.1A4.5 4.5 0 0 1 13.3 10.31V20.2A1.3 1.3 0 0 1 10.7 20.2V10.31A4.5 4.5 0 0 1 8.9 2.75Z" />
+        </g>
+    ),
+    'file-text': (
+        <>
+            <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 3 14 8 19 8" />
+            <line x1="9" y1="9" x2="11" y2="9" />
+            <line x1="9" y1="13" x2="15" y2="13" />
+            <line x1="9" y1="17" x2="15" y2="17" />
         </>
     ),
 };
