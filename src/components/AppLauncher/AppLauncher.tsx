@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from 'react';
+import { Fragment, useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Icon } from '../Icon/Icon';
 import { Logo } from '../Logo/Logo';
@@ -21,6 +21,16 @@ export type LauncherApp = {
     color?: string | null;
     /** One of LOGOS' keys, drawn instead of the initial. */
     icon?: string | null;
+    /** Used by the logged-in user in the last week: the others come after a line. */
+    recent?: boolean;
+};
+
+// The apps used this week, then a line, then the others. With no line to draw (all of
+// one kind, an anonymous caller, an API that doesn't say) it's a single grid.
+const groupsOf = (apps: LauncherApp[]): LauncherApp[][] => {
+    const recent = apps.filter((app) => app.recent);
+    const others = apps.filter((app) => !app.recent);
+    return recent.length > 0 && others.length > 0 ? [recent, others] : [apps];
 };
 
 interface AppLauncherProps {
@@ -122,40 +132,45 @@ export const AppLauncher = ({ appsUrl = DEFAULT_APPS_URL, label, token = null }:
                     ) : apps === null ? (
                         <p className="sg-app-launcher-message">{t('launcher.loading')}</p>
                     ) : (
-                        <ul className="sg-app-launcher-grid">
-                            {apps.map((app) => (
-                                <li key={app.url}>
-                                    <a
-                                        href={app.url}
-                                        className={[
-                                            'sg-app-launcher-app',
-                                            new URL(app.url).origin === window.location.origin ? 'current' : '',
-                                            app.locked ? 'locked' : '',
-                                        ]
-                                            .filter(Boolean)
-                                            .join(' ')}
-                                        title={app.locked ? `${app.name}: ${t('launcher.locked')}` : undefined}
-                                    >
-                                        <span
-                                            className="sg-app-launcher-tile"
-                                            aria-hidden="true"
-                                            style={app.color ? ({ '--tile-bg': app.color } as CSSProperties) : undefined}
-                                        >
-                                            {isLogoKey(app.icon) ? <Logo name={app.icon} size={22} /> : app.name.charAt(0).toUpperCase()}
-                                            {app.locked && (
-                                                <span className="sg-app-launcher-lock">
-                                                    <Icon name="lock" size={12} />
+                        groupsOf(apps).map((group, index) => (
+                            <Fragment key={index}>
+                                {index > 0 && <hr className="sg-app-launcher-separator" />}
+                                <ul className="sg-app-launcher-grid">
+                                    {group.map((app) => (
+                                        <li key={app.url}>
+                                            <a
+                                                href={app.url}
+                                                className={[
+                                                    'sg-app-launcher-app',
+                                                    new URL(app.url).origin === window.location.origin ? 'current' : '',
+                                                    app.locked ? 'locked' : '',
+                                                ]
+                                                    .filter(Boolean)
+                                                    .join(' ')}
+                                                title={app.locked ? `${app.name}: ${t('launcher.locked')}` : undefined}
+                                            >
+                                                <span
+                                                    className="sg-app-launcher-tile"
+                                                    aria-hidden="true"
+                                                    style={app.color ? ({ '--tile-bg': app.color } as CSSProperties) : undefined}
+                                                >
+                                                    {isLogoKey(app.icon) ? <Logo name={app.icon} size={22} /> : app.name.charAt(0).toUpperCase()}
+                                                    {app.locked && (
+                                                        <span className="sg-app-launcher-lock">
+                                                            <Icon name="lock" size={12} />
+                                                        </span>
+                                                    )}
                                                 </span>
-                                            )}
-                                        </span>
-                                        <span className="sg-app-launcher-name">
-                                            {app.name}
-                                            {app.locked && <span className="sg-visually-hidden"> ({t('launcher.locked')})</span>}
-                                        </span>
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
+                                                <span className="sg-app-launcher-name">
+                                                    {app.name}
+                                                    {app.locked && <span className="sg-visually-hidden"> ({t('launcher.locked')})</span>}
+                                                </span>
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </Fragment>
+                        ))
                     )}
                 </div>
             )}

@@ -1,0 +1,71 @@
+@import '../themes.css';
+
+/* Each step as wide as its label plus an equal share of the room left: on one line on a
+   360px phone, wrapping between words (never inside one) only when even that is too narrow. */
+.sg-step-range {
+  display: flex;
+  gap: 2px;
+  overflow: hidden;
+  border: 1px solid var(--sg-border);
+  border-radius: var(--radius);
+  background: var(--sg-border);
+  font-family: var(--font-family);
+}
+
+.sg-step-range-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  gap: 2px;
+  padding: 6px 4px;
+  border: none;
+  background: var(--sg-surface);
+  color: var(--sg-text-muted);
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background 0.15s var(--button-ease-standard),
+    color 0.15s var(--button-ease-standard);
+}
+
+.sg-step-range-item:hover:not(.sg-step-range-item--filled) {
+  background: var(--sg-surface-hover);
+  color: var(--sg-text);
+}
+
+.sg-step-range-item:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 2px solid var(--sg-accent-strong);
+  outline-offset: -2px;
+}
+
+.sg-step-range-item--filled {
+  background: var(--sg-accent-soft);
+  color: var(--sg-accent-strong);
+}
+
+.sg-step-range-item--active {
+  background: var(--sg-accent);
+  color: var(--sg-on-accent);
+  font-weight: 600;
+}
+
+.sg-step-range-count {
+  min-width: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.sg-step-range-count--danger {
+  background: var(--sg-danger);
+  color: var(--sg-color-white);
+}

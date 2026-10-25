@@ -35,4 +35,17 @@ export const Default: Story = {
     },
 };
 
+// As a logged-in user gets them: the apps used this week first, the others after a line.
+const RECENT_APPS = {
+    apps: DEMO_APPS.apps
+        .map((app) => ({ ...app, recent: ['Quadrato', 'Gantt', 'Tome'].includes(app.name) }))
+        .sort((a, b) => Number(b.recent) - Number(a.recent)),
+};
+
+export const UsedThisWeek: Story = {
+    args: {
+        appsUrl: `data:application/json,${encodeURIComponent(JSON.stringify(RECENT_APPS))}`,
+    },
+};
+
 export const Live: Story = {};

@@ -37,6 +37,7 @@ export * from "./components/Textarea/Textarea";
 export * from "./components/Select/Select";
 export * from "./components/FormField/FormField";
 export * from "./components/Tabs/Tabs";
+export * from "./components/StepRange/StepRange";
 export * from "./components/DateNav/DateNav";
 import "./components/Table/Table.css";
 export * from "./components/VersionNumber/VersionNumber";
