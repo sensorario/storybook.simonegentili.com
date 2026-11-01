@@ -63,5 +63,17 @@
         "previousDay": "Vorheriger Tag",
         "nextDay": "Nächster Tag",
         "backToToday": "Zurück zu heute"
+    },
+    "editableText": {
+        "hint": "Doppelklicken zum Bearbeiten"
+    },
+    "notes": {
+        "add": "Doppelklicken, um eine Notiz hinzuzufügen",
+        "delete": "Notiz löschen",
+        "errors": {
+            "load": "Die Notizen konnten nicht geladen werden.",
+            "save": "Notiz nicht gespeichert. Bitte erneut versuchen.",
+            "delete": "Notiz nicht gelöscht. Bitte erneut versuchen."
+        }
     }
 }

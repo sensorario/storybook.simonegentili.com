@@ -1,0 +1,22 @@
+@import '../themes.css';
+
+.sg-editable-text {
+    border-radius: var(--radius);
+    cursor: text;
+    white-space: pre-wrap;
+}
+
+.sg-editable-text:hover {
+    background: var(--sg-accent-soft);
+}
+
+.sg-editable-text[contenteditable] {
+    padding: 0 2px;
+    background: var(--sg-surface);
+    outline: 2px solid var(--sg-accent);
+}
+
+.sg-editable-text:empty::before {
+    content: attr(data-placeholder);
+    color: var(--sg-text-muted);
+}

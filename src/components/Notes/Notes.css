@@ -1,0 +1,46 @@
+@import '../themes.css';
+
+.sg-notes {
+    margin: 8px 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.9em;
+}
+
+.sg-notes-item {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.sg-notes-new {
+    font-size: 0.95em;
+}
+
+.sg-notes-delete {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--sg-text-muted);
+    font: inherit;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.sg-notes-delete:hover {
+    color: var(--sg-danger);
+}
+
+/* With a mouse the × shows on the note it's on; on a touch screen it's always there. */
+@media (hover: hover) {
+    .sg-notes-delete {
+        opacity: 0;
+    }
+
+    .sg-notes-item:hover .sg-notes-delete,
+    .sg-notes-delete:focus-visible {
+        opacity: 1;
+    }
+}

@@ -63,5 +63,17 @@
         "previousDay": "Jour précédent",
         "nextDay": "Jour suivant",
         "backToToday": "Revenir à aujourd’hui"
+    },
+    "editableText": {
+        "hint": "Double-cliquez pour modifier"
+    },
+    "notes": {
+        "add": "Double-cliquez pour ajouter une note",
+        "delete": "Supprimer la note",
+        "errors": {
+            "load": "Impossible de charger les notes.",
+            "save": "Note non enregistrée. Réessayez.",
+            "delete": "Note non supprimée. Réessayez."
+        }
     }
 }
