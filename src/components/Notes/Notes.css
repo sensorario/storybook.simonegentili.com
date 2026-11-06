@@ -14,8 +14,31 @@
     margin-top: 4px;
 }
 
+.sg-notes-time {
+    color: var(--sg-text-muted);
+    font-size: 0.85em;
+    white-space: nowrap;
+}
+
 .sg-notes-new {
     font-size: 0.95em;
+}
+
+.sg-notes-field {
+    flex: 1;
+    box-sizing: border-box;
+    padding: 8px 10px;
+    border: 1px solid var(--sg-border);
+    border-radius: var(--radius);
+    background: var(--sg-surface);
+    color: inherit;
+    font: inherit;
+    resize: vertical;
+}
+
+.sg-notes-field:focus {
+    outline: 2px solid var(--sg-accent);
+    outline-offset: -1px;
 }
 
 .sg-notes-delete {

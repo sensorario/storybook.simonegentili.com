@@ -69,11 +69,16 @@
     },
     "notes": {
         "add": "Double-click to add a note",
+        "write": "Write a note",
         "delete": "Delete the note",
         "errors": {
             "load": "Couldn't load the notes.",
             "save": "Note not saved. Try again.",
             "delete": "Note not deleted. Try again."
         }
+    },
+    "editableTime": {
+        "hint": "Double-click to change the time",
+        "label": "Time"
     }
 }

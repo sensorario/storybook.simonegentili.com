@@ -69,11 +69,16 @@
     },
     "notes": {
         "add": "Doppelklicken, um eine Notiz hinzuzufügen",
+        "write": "Eine Notiz schreiben",
         "delete": "Notiz löschen",
         "errors": {
             "load": "Die Notizen konnten nicht geladen werden.",
             "save": "Notiz nicht gespeichert. Bitte erneut versuchen.",
             "delete": "Notiz nicht gelöscht. Bitte erneut versuchen."
         }
+    },
+    "editableTime": {
+        "hint": "Doppelklicken, um die Uhrzeit zu ändern",
+        "label": "Uhrzeit"
     }
 }

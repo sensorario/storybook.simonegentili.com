@@ -11,11 +11,21 @@ export default meta;
 type Story = StoryObj<typeof Notes>;
 
 // Kept here instead of in the notes service, which useNotes talks to.
-const NotesOf = ({ initial }: { initial: Note[] }) => {
+const NotesOf = ({
+    initial,
+    addWith,
+    showAddedAt,
+}: {
+    initial: Note[];
+    addWith?: 'doubleClick' | 'field';
+    showAddedAt?: boolean;
+}) => {
     const [notes, setNotes] = useState(initial);
     return (
         <Notes
             notes={notes}
+            addWith={addWith}
+            showAddedAt={showAddedAt}
             onAdd={(text) => setNotes((list) => [...list, { id: crypto.randomUUID(), text, addedAt: Date.now() / 1000 }])}
             onEdit={(noteId, text) => setNotes((list) => list.map((n) => (n.id === noteId ? { ...n, text } : n)))}
             onDelete={(noteId) => setNotes((list) => list.filter((n) => n.id !== noteId))}
@@ -40,4 +50,20 @@ export const Default: Story = {
 
 export const Empty: Story = {
     render: () => <NotesOf initial={[]} />,
+};
+
+// A day of Hermes Metis' Diario: what was written that day, when, then the field for one more.
+export const Field: Story = {
+    render: () => (
+        <div style={{ maxWidth: 480 }}>
+            <NotesOf
+                addWith="field"
+                showAddedAt
+                initial={[
+                    { id: 'n-1', text: 'Mattina pesante, ma sono uscito a camminare.', addedAt: 1793540100 },
+                    { id: 'n-2', text: 'Il pomeriggio è andato meglio.', addedAt: 1793558100 },
+                ]}
+            />
+        </div>
+    ),
 };

@@ -1,0 +1,23 @@
+@import '../themes.css';
+
+.sg-editable-time {
+    padding: 0 2px;
+    border-radius: var(--radius);
+    font-variant-numeric: tabular-nums;
+    cursor: text;
+}
+
+.sg-editable-time:not([aria-disabled]):hover {
+    background: var(--sg-accent-soft);
+}
+
+.sg-editable-time-input {
+    padding: 0 2px;
+    border: 0;
+    border-radius: var(--radius);
+    outline: 2px solid var(--sg-accent);
+    background: var(--sg-surface);
+    color: inherit;
+    font: inherit;
+    font-variant-numeric: tabular-nums;
+}

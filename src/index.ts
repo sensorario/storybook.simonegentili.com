@@ -40,6 +40,7 @@ export * from "./components/Tabs/Tabs";
 export * from "./components/StepRange/StepRange";
 export * from "./components/DateNav/DateNav";
 export * from "./components/EditableText/EditableText";
+export * from "./components/EditableTime/EditableTime";
 export * from "./components/Notes/Notes";
 export * from "./components/Notes/useNotes";
 import "./components/Table/Table.css";
