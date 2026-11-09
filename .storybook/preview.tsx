@@ -18,10 +18,9 @@ const preview: Preview = {
     decorators: [
         (Story, context) => {
             useEffect(() => {
-                document.documentElement.dataset.theme = context.globals.theme || "light";
                 document.body.style.background = "var(--sg-bg)";
                 document.body.style.color = "var(--sg-text)";
-            }, [context.globals.theme]);
+            }, []);
             useEffect(() => {
                 sgI18n.changeLanguage(context.globals.locale || "it");
             }, [context.globals.locale]);
@@ -29,18 +28,6 @@ const preview: Preview = {
         }
     ],
     globalTypes: {
-        theme: {
-            name: "Theme",
-            description: "Global theme for components",
-            defaultValue: "light",
-            toolbar: {
-                icon: "mirror",
-                items: [
-                    { value: "light", title: "Light" },
-                    { value: "dark", title: "Dark" },
-                ],
-            },
-        },
         locale: {
             name: "Locale",
             description: "Language of the sg namespace",
