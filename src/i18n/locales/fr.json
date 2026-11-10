@@ -3,7 +3,8 @@
         "login": "Se connecter",
         "logout": "Se déconnecter",
         "username": "Nom d’utilisateur",
-        "password": "Mot de passe"
+        "password": "Mot de passe",
+        "stopImpersonating": "Revenir à ton compte"
     },
     "modal": {
         "close": "Fermer"

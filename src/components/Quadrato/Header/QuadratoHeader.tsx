@@ -1,11 +1,20 @@
 import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { sgI18n } from '../../../i18n';
 import { Header } from '../../Header/Header';
 import { AppAccessGate, DEFAULT_HEIMDALL_URL } from '../../AppAccessGate/AppAccessGate';
 import { AppLauncher } from '../../AppLauncher/AppLauncher';
 import { Avatar } from '../../Avatar/Avatar';
 import Authenticator from '../../Authenticator/Authenticator';
 import LoginModal from '../../LoginModal/LoginModal';
-import { ACCESS_TOKEN_COOKIE, getAccessToken, getTokenClaim } from '../../../auth';
+import {
+  ACCESS_TOKEN_COOKIE,
+  forgetImpersonator,
+  getAccessToken,
+  getImpersonatorToken,
+  getTokenClaim,
+  stopImpersonating,
+} from '../../../auth';
 import './QuadratoHeader.css';
 
 /** Dispatch on `window` with the new avatar (data URL or null) as `detail` after changing it, so the header updates without a reload. */
@@ -25,7 +34,7 @@ interface QuadratoHeaderProps {
   usernameJwtField?: string;
   /** Delegated login call, e.g. AjaxRepository.authenticate. Must set the auth cookie on success. */
   onLogin: (username: string, password: string) => void | Promise<void>;
-  /** Delegated logout call. Must clear the auth cookie. */
+  /** Delegated logout call. Must clear the auth cookie. Not called while impersonating: then the button goes back to the admin, reloading the page. */
   onLogout?: () => void;
   /** Notified on mount and after every login/logout with the current auth state. */
   onUserAuthenticated?: (isAuthenticated: boolean, username: string | null) => void;
@@ -53,7 +62,10 @@ export const QuadratoHeader = forwardRef<QuadratoHeaderHandle, QuadratoHeaderPro
   appsUrl,
   heimdallUrl = DEFAULT_HEIMDALL_URL,
 }, ref) => {
+  const { t } = useTranslation('sg', { i18n: sgI18n });
   const [isAuthenticated, setIsAuthenticated] = useState(() => hasCookie(cookieName));
+  // Heimdall impersonating someone: the admin's own token is kept aside meanwhile.
+  const impersonator = isAuthenticated ? getTokenClaim(getImpersonatorToken()) : null;
   const [showLoginModal, setShowLoginModal] = useState(false);
 
   useImperativeHandle(ref, () => ({
@@ -92,6 +104,7 @@ export const QuadratoHeader = forwardRef<QuadratoHeaderHandle, QuadratoHeaderPro
 
   const handleLogin = async (loginUsername: string, password: string) => {
     await onLogin(loginUsername, password);
+    forgetImpersonator();
     const authenticated = hasCookie(cookieName);
     setIsAuthenticated(authenticated);
     setShowLoginModal(false);
@@ -99,6 +112,11 @@ export const QuadratoHeader = forwardRef<QuadratoHeaderHandle, QuadratoHeaderPro
   };
 
   const handleLogout = () => {
+    // Leaving someone impersonated goes back to the admin, not out: the app starts again as them.
+    if (stopImpersonating()) {
+      window.location.reload();
+      return;
+    }
     onLogout?.();
     const authenticated = hasCookie(cookieName);
     setIsAuthenticated(authenticated);
@@ -120,6 +138,7 @@ export const QuadratoHeader = forwardRef<QuadratoHeaderHandle, QuadratoHeaderPro
             isLoggedIn={isAuthenticated}
             handleLogin={() => setShowLoginModal(true)}
             handleLogout={handleLogout}
+            logoutLabel={impersonator ? t('auth.stopImpersonating') : undefined}
           />
         </div>
       </Header>

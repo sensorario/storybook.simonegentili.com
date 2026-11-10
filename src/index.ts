@@ -54,6 +54,11 @@ export {
     setAccessToken,
     clearAccessToken,
     getTokenClaim,
+    IMPERSONATOR_COOKIE,
+    getImpersonatorToken,
+    startImpersonating,
+    stopImpersonating,
+    forgetImpersonator,
 } from "./auth";
 export * from "./components/Logo/Logo";
 export * from "./components/Logo/logos";

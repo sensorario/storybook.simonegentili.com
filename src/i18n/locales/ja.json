@@ -3,7 +3,8 @@
         "login": "ログイン",
         "logout": "ログアウト",
         "username": "ユーザー名",
-        "password": "パスワード"
+        "password": "パスワード",
+        "stopImpersonating": "自分のアカウントに戻る"
     },
     "modal": {
         "close": "閉じる"

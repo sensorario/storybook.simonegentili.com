@@ -3,7 +3,8 @@
         "login": "Log in",
         "logout": "Log out",
         "username": "Username",
-        "password": "Password"
+        "password": "Password",
+        "stopImpersonating": "Back to your user"
     },
     "modal": {
         "close": "Close"

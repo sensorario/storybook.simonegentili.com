@@ -7,17 +7,20 @@ type AuthenticatorProps = {
     isLoggedIn: boolean;
     handleLogin: () => void;
     handleLogout: () => void;
+    /** What the logout button says instead of "Esci", e.g. while impersonating someone. */
+    logoutLabel?: string;
 };
 
 export const Authenticator: React.FC<AuthenticatorProps> = ({
     isLoggedIn,
     handleLogin,
-    handleLogout
+    handleLogout,
+    logoutLabel,
 }: AuthenticatorProps) => {
     const { t } = useTranslation('sg', { i18n: sgI18n });
     return <>{
         isLoggedIn
-            ? <button onClick={handleLogout} className="sg-authenticator-button">{t('auth.logout')}</button>
+            ? <button onClick={handleLogout} className="sg-authenticator-button">{logoutLabel ?? t('auth.logout')}</button>
             : <button onClick={handleLogin} className="sg-authenticator-button">{t('auth.login')}</button>
     }</>
 }

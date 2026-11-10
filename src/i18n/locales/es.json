@@ -3,7 +3,8 @@
         "login": "Iniciar sesión",
         "logout": "Cerrar sesión",
         "username": "Usuario",
-        "password": "Contraseña"
+        "password": "Contraseña",
+        "stopImpersonating": "Volver a tu cuenta"
     },
     "modal": {
         "close": "Cerrar"

@@ -38,3 +38,34 @@ export const getTokenClaim = (token: string | null = getAccessToken(), claim = '
         return null;
     }
 };
+
+/**
+ * While an admin impersonates someone from Heimdall, their own token waits here, shared by every app
+ * as the access token is: leaving the one impersonated (the header's logout) goes back to them.
+ */
+export const IMPERSONATOR_COOKIE = 'simonegentili.com-impersonator-token';
+
+export const getImpersonatorToken = (): string | null => readCookie(IMPERSONATOR_COOKIE);
+
+/** Logs in as someone else, keeping the current token to come back to (the first one, if already impersonating). */
+export const startImpersonating = (token: string, maxAgeSeconds = 7 * 24 * 3600) => {
+    const own = getAccessToken();
+    if (own && !getImpersonatorToken()) {
+        writeCookie(IMPERSONATOR_COOKIE, own, maxAgeSeconds);
+    }
+    setAccessToken(token, maxAgeSeconds);
+};
+
+/** Back to whoever was impersonating: false, and nothing changed, when nobody was. */
+export const stopImpersonating = (): boolean => {
+    const own = getImpersonatorToken();
+    if (!own) {
+        return false;
+    }
+    setAccessToken(own);
+    forgetImpersonator();
+    return true;
+};
+
+/** A login of its own ends any impersonation: its logout must never bring back someone else. */
+export const forgetImpersonator = () => writeCookie(IMPERSONATOR_COOKIE, '', 0);

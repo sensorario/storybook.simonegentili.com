@@ -3,7 +3,8 @@
         "login": "Accedi",
         "logout": "Esci",
         "username": "Username",
-        "password": "Password"
+        "password": "Password",
+        "stopImpersonating": "Torna al tuo utente"
     },
     "modal": {
         "close": "Chiudi"
